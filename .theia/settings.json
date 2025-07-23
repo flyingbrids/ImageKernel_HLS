@@ -1,0 +1,11 @@
+{
+    "clangd.fallbackFlags": [
+        "-I/home/leon/Desktop/Vitis_Libraries/vision/L1/include",
+        "-I/home/leon/Desktop/Vitis_Libraries/vision/L1/include/common",
+        "-I/media/leon/Extend/Vitis_HLS/2023.2/include",
+        "-I/media/leon/Extend/Vitis_HLS/2023.2/include/etc",
+        "-I/media/leon/Extend/Vitis_HLS/2023.2/include/ap_sysc",
+        "-I/media/leon/Extend/Vitis_HLS/2023.2/lnx64/tools/auto_cc/include",
+        "-I/media/leon/Extend/Vitis_HLS/2023.2/lnx64/tools/systemc/include"
+    ]
+}

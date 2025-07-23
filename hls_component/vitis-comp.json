@@ -1,0 +1,12 @@
+{
+  "name": "hls_component",
+  "type": "HLS",
+  "configuration": {
+    "componentType": "HLS",
+    "configFiles": [
+      "/home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg"
+    ],
+    "work_dir": "conv2d_3x3"
+  },
+  "previousBuildStatusMap": {}
+}
