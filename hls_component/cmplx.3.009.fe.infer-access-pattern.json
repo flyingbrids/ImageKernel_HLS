@@ -1,0 +1,32 @@
+{
+  "0": {
+    "basicblocks": 9,
+    "calls": "1 1",
+    "file": "conv2d_hls.cpp",
+    "fileloc": 6,
+    "instructions": 4988,
+    "loads": {
+      "L": 2
+    },
+    "name": "conv2d_3x3",
+    "stores": {
+      "L": 2
+    },
+    "total_instructions": 19682
+  },
+  "1": {
+    "basicblocks": 1,
+    "calls": "",
+    "file": "shift_register.cpp",
+    "fileloc": 5,
+    "instructions": 7347,
+    "loads": {
+      "L": 2449
+    },
+    "name": "shift_register_cpp_func",
+    "stores": {
+      "L": 2449
+    },
+    "total_instructions": 7347
+  }
+}

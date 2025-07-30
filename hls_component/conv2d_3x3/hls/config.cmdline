@@ -1,0 +1,3 @@
+relativeroot=/home/leon/Desktop/Project/ImageKernel_HLS/hls_component
+original_argv=-c --mode hls --config /home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg --work_dir conv2d_3x3 
+

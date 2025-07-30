@@ -1,0 +1,246 @@
+<ENTRY>
+{
+ "thisFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/conv2d_3x3.hlscompile_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Wed Jul 30 13:32:24 2025",
+ "timestampMillis": "1753907544224",
+ "buildStep": {
+  "cmdId": "14ca58d3-6e52-4db7-9d4b-d0f5d8c4ec33",
+  "name": "v++",
+  "logFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/logs/conv2d_3x3.steps.log",
+  "commandLine": "/media/leon/Extend/Vitis/2023.2/bin/unwrapped/lnx64.o/v++  -c --mode hls --config /home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg --work_dir conv2d_3x3 ",
+  "args": [
+   "-c",
+   "--mode",
+   "hls",
+   "--config",
+   "/home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg",
+   "--work_dir",
+   "conv2d_3x3"
+  ],
+  "iniFiles": [
+   {
+    "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg",
+    "content": "part=xa7z010clg225-1I\n\n[hls]\nflow_target=vivado\npackage.output.format=ip_catalog\npackage.output.syn=false\nclock=50ns\nsyn.top=conv2d_3x3\nsyn.cflags=-I/home/leon/Desktop/Vitis_Libraries/vision/L1/include -I/home/leon/Desktop/Vitis_Libraries/vision/L1/include/common\nsyn.csimflags=-I/home/leon/Desktop/Vitis_Libraries/vision/L1/include -I/home/leon/Desktop/Vitis_Libraries/vision/L1/include/common\nsyn.file=conv2d_hls.cpp\nsyn.file=conv2d_hls.h\ntb.file=conv2d_hls_testbench.cpp\ncosim.trace_level=none\ncosim.wave_debug=false\n"
+   }
+  ],
+  "cwd": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:32:24 2025",
+ "timestampMillis": "1753907544224",
+ "status": {
+  "cmdId": "14ca58d3-6e52-4db7-9d4b-d0f5d8c4ec33",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546111",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_COMPILE",
+  "target": "TT_HW",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "conv2d_3x3",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp",
+     "/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2023.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546112",
+ "buildStep": {
+  "cmdId": "0ccc6c75-fd2b-4422-9d6b-99acd7024c47",
+  "name": "csynth_design",
+  "logFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls/hls.log",
+  "commandLine": "csynth_design",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546112",
+ "status": {
+  "cmdId": "0ccc6c75-fd2b-4422-9d6b-99acd7024c47",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546112",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls/hls_data.json",
+  "name": "",
+  "fileType": "JSON",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546113",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls/syn/report/csynth.rpt",
+  "name": "",
+  "fileType": "TEXT",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:26 2025",
+ "timestampMillis": "1753907546113",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls/syn/report/csynth.xml",
+  "name": "",
+  "fileType": "XML",
+  "reportType": "HLS_SYNTHESIS",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557053",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_DATAFLOW",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557054",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_FUNCTION_CALL_GRAPH",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557054",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls",
+  "name": "",
+  "fileType": "DIR",
+  "reportType": "HLS_SCHEDULE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557054",
+ "status": {
+  "cmdId": "0ccc6c75-fd2b-4422-9d6b-99acd7024c47",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557127",
+ "status": {
+  "cmdId": "14ca58d3-6e52-4db7-9d4b-d0f5d8c4ec33",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557182",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/reports/v++_compile_conv2d_3x3_guidance.html",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:32:37 2025",
+ "timestampMillis": "1753907557183",
+ "report": {
+  "path": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/reports/.db/v++_compile_conv2d_3x3_guidance.pb3",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

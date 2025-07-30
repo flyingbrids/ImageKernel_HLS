@@ -1,0 +1,157 @@
+<ENTRY>
+{
+ "thisFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/conv2d_3x3.hlsrun_csim_summary",
+ "connectId": "",
+ "serverToken": "",
+ "timestamp": "0"
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_CmdStep",
+ "dateTimestamp": "Wed Jul 30 13:31:10 2025",
+ "timestampMillis": "1753907470584",
+ "buildStep": {
+  "cmdId": "e73a496c-a47c-4293-9f23-9eff385f1ae2",
+  "name": "vitis-run",
+  "logFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/logs/conv2d_3x3.steps.log",
+  "commandLine": "/media/leon/Extend/Vitis/2023.2/bin/unwrapped/lnx64.o/vitis-run  --mode hls --csim --config /home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg --work_dir conv2d_3x3 ",
+  "args": [
+   "--mode",
+   "hls",
+   "--csim",
+   "--config",
+   "/home/leon/Desktop/Project/ImageKernel_HLS/hls_config.cfg",
+   "--work_dir",
+   "conv2d_3x3"
+  ],
+  "iniFiles": [],
+  "cwd": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:31:10 2025",
+ "timestampMillis": "1753907470584",
+ "status": {
+  "cmdId": "e73a496c-a47c-4293-9f23-9eff385f1ae2",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_FlowMetaData",
+ "dateTimestamp": "Wed Jul 30 13:31:13 2025",
+ "timestampMillis": "1753907473064",
+ "buildSummary": {
+  "hardwarePlatform": "",
+  "hardwareDsa": "",
+  "platformDirectory": "",
+  "runtime": "",
+  "systemConfig": "",
+  "flow": "BF_RUN",
+  "target": "TT_HLS_C_SIM",
+  "kernels": [
+   {
+    "base": {
+     "type": "KERNEL",
+     "name": "conv2d_3x3",
+     "file": "",
+     "reports": [],
+     "uuid": ""
+    },
+    "sources": [
+     "/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp",
+     "/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.h"
+    ],
+    "psSources": [],
+    "cuNames": [],
+    "type": "HLS",
+    "frequency": 0,
+    "freqUnits": ""
+   }
+  ],
+  "toolVersion": "2023.2"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_SubCmdStep",
+ "dateTimestamp": "Wed Jul 30 13:31:13 2025",
+ "timestampMillis": "1753907473065",
+ "buildStep": {
+  "cmdId": "83089b6c-3710-4234-b248-b8914092799a",
+  "name": "csim_design",
+  "logFile": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component/conv2d_3x3/hls/hls.log",
+  "commandLine": "csim_design",
+  "args": [],
+  "iniFiles": [],
+  "cwd": "/home/leon/Desktop/Project/ImageKernel_HLS/hls_component"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:31:13 2025",
+ "timestampMillis": "1753907473066",
+ "status": {
+  "cmdId": "83089b6c-3710-4234-b248-b8914092799a",
+  "state": "CS_RUNNING"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:31:29 2025",
+ "timestampMillis": "1753907489164",
+ "status": {
+  "cmdId": "83089b6c-3710-4234-b248-b8914092799a",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Status",
+ "dateTimestamp": "Wed Jul 30 13:31:29 2025",
+ "timestampMillis": "1753907489263",
+ "status": {
+  "cmdId": "e73a496c-a47c-4293-9f23-9eff385f1ae2",
+  "state": "CS_PASSED"
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:31:29 2025",
+ "timestampMillis": "1753907489263",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "HTML",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>
+<ENTRY>
+{
+ "type": "ET_Report",
+ "dateTimestamp": "Wed Jul 30 13:31:29 2025",
+ "timestampMillis": "1753907489264",
+ "report": {
+  "path": "",
+  "name": "",
+  "fileType": "BINARY_PROTOBUF",
+  "reportType": "GLOBAL_RULECHECK_GUIDANCE",
+  "cmdId": ""
+ }
+}
+</ENTRY>

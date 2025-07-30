@@ -1,11 +1,14 @@
 # Ignore build output directory
 /build
-conv2d_3x3/
+hw_platform/
+logs/
+reports/
+.autopilot/
+.cache/
 
 # Ignore object files and dependent files
 .o
 .d
-.pgm
 
 #Ignore logs folder and log files
 /logs
