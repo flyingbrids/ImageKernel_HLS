@@ -4,68 +4,67 @@
     </ReportVersion>
     <UserAssignments>
         <unit>ns</unit>
-        <ProductFamily>azynq</ProductFamily>
-        <Part>xa7z010-clg225-1I</Part>
+        <ProductFamily>zynquplus</ProductFamily>
+        <Part>xczu1cg-sbva484-1-e</Part>
         <TopModelName>conv2d_3x3</TopModelName>
-        <TargetClockPeriod>50.00</TargetClockPeriod>
-        <ClockUncertainty>13.50</ClockUncertainty>
+        <TargetClockPeriod>10.00</TargetClockPeriod>
+        <ClockUncertainty>2.70</ClockUncertainty>
         <FlowTarget>vivado</FlowTarget>
     </UserAssignments>
     <PerformanceEstimates>
         <PipelineType>no</PipelineType>
         <SummaryOfTimingAnalysis>
             <unit>ns</unit>
-            <EstimatedClockPeriod>16.091</EstimatedClockPeriod>
+            <EstimatedClockPeriod>6.490</EstimatedClockPeriod>
         </SummaryOfTimingAnalysis>
         <SummaryOfOverallLatency>
             <unit>clock cycles</unit>
-            <Best-caseLatency>10045038</Best-caseLatency>
-            <Average-caseLatency>10045038</Average-caseLatency>
-            <Worst-caseLatency>10045038</Worst-caseLatency>
-            <Best-caseRealTimeLatency>0.502 sec</Best-caseRealTimeLatency>
-            <Average-caseRealTimeLatency>0.502 sec</Average-caseRealTimeLatency>
-            <Worst-caseRealTimeLatency>0.502 sec</Worst-caseRealTimeLatency>
-            <Interval-min>10045039</Interval-min>
-            <Interval-max>10045039</Interval-max>
+            <Best-caseLatency>undef</Best-caseLatency>
+            <Average-caseLatency>undef</Average-caseLatency>
+            <Worst-caseLatency>undef</Worst-caseLatency>
+            <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+            <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+            <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+            <Interval-min>undef</Interval-min>
+            <Interval-max>undef</Interval-max>
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
-            <VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-                <Slack>36.50</Slack>
-                <TripCount>5022500</TripCount>
-                <Latency>10045036</Latency>
-                <AbsoluteTimeLatency>502251800</AbsoluteTimeLatency>
-                <PipelineII>2</PipelineII>
-                <PipelineDepth>39</PipelineDepth>
+            <VITIS_LOOP_86_1>
+                <Slack>7.30</Slack>
+                <TripCount>2049</TripCount>
+                <Latency>undef</Latency>
+                <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                <IterationLatency>undef</IterationLatency>
                 <InstanceList/>
-            </VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+            </VITIS_LOOP_86_1>
         </SummaryOfLoopLatency>
         <SummaryOfViolations>
             <IssueType>-</IssueType>
             <ViolationType>-</ViolationType>
-            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:23</SourceLocation>
+            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:84</SourceLocation>
             <SummaryOfLoopViolations>
-                <VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-                    <Name>VITIS_LOOP_28_1_VITIS_LOOP_30_2</Name>
-                    <IssueType>II Violation</IssueType>
-                    <ViolationType>Resource Limitation</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:28</SourceLocation>
-                </VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+                <VITIS_LOOP_86_1>
+                    <Name>VITIS_LOOP_86_1</Name>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:199</SourceLocation>
+                </VITIS_LOOP_86_1>
             </SummaryOfLoopViolations>
         </SummaryOfViolations>
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
-            <BRAM_18K>9</BRAM_18K>
-            <DSP>6</DSP>
-            <FF>4113</FF>
-            <LUT>3402</LUT>
+            <BRAM_18K>6</BRAM_18K>
+            <FF>379</FF>
+            <LUT>1149</LUT>
             <URAM>0</URAM>
+            <DSP>0</DSP>
         </Resources>
         <AvailableResources>
-            <BRAM_18K>120</BRAM_18K>
-            <DSP>80</DSP>
-            <FF>35200</FF>
-            <LUT>17600</LUT>
+            <BRAM_18K>216</BRAM_18K>
+            <DSP>216</DSP>
+            <FF>74880</FF>
+            <LUT>37440</LUT>
             <URAM>0</URAM>
         </AvailableResources>
     </AreaEstimates>
@@ -93,18 +92,6 @@
             <Attribute>control</Attribute>
         </RtlPorts>
         <RtlPorts>
-            <name>input_r_TVALID</name>
-            <Object>input_r</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
             <name>input_r_TDATA</name>
             <Object>input_r</Object>
             <Type>pointer</Type>
@@ -117,6 +104,18 @@
             <CType>int</CType>
         </RtlPorts>
         <RtlPorts>
+            <name>input_r_TVALID</name>
+            <Object>input_r</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
+        <RtlPorts>
             <name>input_r_TREADY</name>
             <Object>input_r</Object>
             <Type>pointer</Type>
@@ -124,18 +123,6 @@
             <IOProtocol>axis</IOProtocol>
             <IOConfig>register, both mode</IOConfig>
             <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>output_r_TREADY</name>
-            <Object>output_r</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>in</Dir>
             <Bits>1</Bits>
             <Attribute>control</Attribute>
             <CType>int</CType>
@@ -164,109 +151,200 @@
             <Attribute>control</Attribute>
             <CType>int</CType>
         </RtlPorts>
+        <RtlPorts>
+            <name>output_r_TREADY</name>
+            <Object>output_r</Object>
+            <Type>pointer</Type>
+            <Scope/>
+            <IOProtocol>axis</IOProtocol>
+            <IOConfig>register, both mode</IOConfig>
+            <Dir>in</Dir>
+            <Bits>1</Bits>
+            <Attribute>control</Attribute>
+            <CType>int</CType>
+        </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
-        <TopModule MAX_DEPTH="2">
+        <TopModule MAX_DEPTH="3">
             <ModuleName>conv2d_3x3</ModuleName>
-            <BindInstances>linebuf_U linebuf_1_U linebuf_2_U linebuf_3_U linebuf_4_U linebuf_5_U linebuf_6_U linebuf_7_U linebuf_8_U add_ln28_fu_499_p2 add_ln28_1_fu_525_p2 mul_12ns_14ns_25_1_1_U4 col_adj_2_fu_613_p2 add_ln58_fu_625_p2 mul_12ns_14ns_25_1_1_U2 mul_32ns_34ns_65_1_1_U1 sub_ln23_fu_902_p2 tmp_fu_971_p2 sub_ln59_fu_936_p2 add_ln59_fu_1015_p2 col_fu_725_p2</BindInstances>
+            <InstancesList>
+                <Instance>
+                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_88_2_fu_147</InstName>
+                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_88_2</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>147</ID>
+                    <BindInstances>tmp7_fu_561_p2 sum_8_fu_579_p2 sum_5_fu_589_p2 grp_fu_307_p2 tmp4_fu_715_p2 add_ln67_fu_745_p2 add_ln122_fu_775_p2 sum_3_fu_781_p2 tmp_fu_869_p2 sum_6_fu_887_p2 sum_fu_897_p2 grp_fu_307_p2 linebuf_1_U linebuf_2_U</BindInstances>
+                </Instance>
+            </InstancesList>
+            <BindInstances>row_3_fu_303_p2 sum_10_fu_334_p2 sum_fu_387_p2 sub_ln67_fu_448_p2</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>conv2d_3x3</Name>
+            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_88_2</Name>
             <Loops>
-                <VITIS_LOOP_28_1_VITIS_LOOP_30_2/>
+                <VITIS_LOOP_88_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
-                    <TargetClockPeriod>50.00</TargetClockPeriod>
-                    <ClockUncertainty>13.50</ClockUncertainty>
-                    <EstimatedClockPeriod>16.091</EstimatedClockPeriod>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <TargetInitiationInterval>4294967295</TargetInitiationInterval>
+                    <EstimatedClockPeriod>6.490</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
-                    <Best-caseLatency>10045038</Best-caseLatency>
-                    <Average-caseLatency>10045038</Average-caseLatency>
-                    <Worst-caseLatency>10045038</Worst-caseLatency>
-                    <Best-caseRealTimeLatency>0.502 sec</Best-caseRealTimeLatency>
-                    <Average-caseRealTimeLatency>0.502 sec</Average-caseRealTimeLatency>
-                    <Worst-caseRealTimeLatency>0.502 sec</Worst-caseRealTimeLatency>
-                    <PipelineInitiationInterval>10045039</PipelineInitiationInterval>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-                        <Name>VITIS_LOOP_28_1_VITIS_LOOP_30_2</Name>
-                        <Slack>36.50</Slack>
-                        <TripCount>5022500</TripCount>
-                        <Latency>10045036</Latency>
-                        <AbsoluteTimeLatency>0.502 sec</AbsoluteTimeLatency>
-                        <PipelineII>2</PipelineII>
-                        <PipelineDepth>39</PipelineDepth>
+                    <VITIS_LOOP_88_2>
+                        <Name>VITIS_LOOP_88_2</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>undef</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <PipelineII>1</PipelineII>
+                        <PipelineDepth>3</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+                    </VITIS_LOOP_88_2>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:23</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:767~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:130</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-                            <Name>VITIS_LOOP_28_1_VITIS_LOOP_30_2</Name>
-                            <IssueType>II Violation</IssueType>
-                            <ViolationType>Resource Limitation</ViolationType>
-                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:28</SourceLocation>
-                        </VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+                        <VITIS_LOOP_88_2>
+                            <Name>VITIS_LOOP_88_2</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:125</SourceLocation>
+                        </VITIS_LOOP_88_2>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
                 <Resources>
-                    <BRAM_18K>9</BRAM_18K>
-                    <AVAIL_BRAM>120</AVAIL_BRAM>
-                    <UTIL_BRAM>7</UTIL_BRAM>
-                    <DSP>6</DSP>
-                    <AVAIL_DSP>80</AVAIL_DSP>
-                    <UTIL_DSP>7</UTIL_DSP>
-                    <FF>4113</FF>
-                    <AVAIL_FF>35200</AVAIL_FF>
-                    <UTIL_FF>11</UTIL_FF>
-                    <LUT>3404</LUT>
-                    <AVAIL_LUT>17600</AVAIL_LUT>
-                    <UTIL_LUT>19</UTIL_LUT>
+                    <BRAM_18K>6</BRAM_18K>
+                    <AVAIL_BRAM>216</AVAIL_BRAM>
+                    <UTIL_BRAM>2</UTIL_BRAM>
+                    <FF>208</FF>
+                    <AVAIL_FF>74880</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>773</LUT>
+                    <AVAIL_LUT>37440</AVAIL_LUT>
+                    <UTIL_LUT>2</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>0</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_1_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_1"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_2_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_2"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_3_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_3"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_4_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_4"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_5_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_5"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_6_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_6"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_7_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_7"/>
-                <BindNode BINDTYPE="storage" BRAM="1" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="bram" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="yes" RTLNAME="linebuf_8_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:21" STORAGESIZE="10 816 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p array" URAM="0" VARIABLE="linebuf_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln28_fu_499_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:28" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln28_1_fu_525_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:28" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln28_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12ns_14ns_25_1_1_U4" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:30" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="col_adj_2_fu_613_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:30" STORAGESUBTYPE="" URAM="0" VARIABLE="col_adj_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln58_fu_625_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln58"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="1" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="mul" PRAGMA="" RTLNAME="mul_12ns_14ns_25_1_1_U2" SOURCE="/home/leon/Desktop/Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:984" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln984"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op mul" DSP="4" ID="" IMPL="auto" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="mul" PRAGMA="" RTLNAME="mul_32ns_34ns_65_1_1_U1" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:23" STORAGESUBTYPE="" URAM="0" VARIABLE="mul_ln23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln23_fu_902_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:23" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_971_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:58" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln59_fu_936_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:59" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln59"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln59_fu_1015_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:59" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln59"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_28_1_VITIS_LOOP_30_2" OPTYPE="add" PRAGMA="" RTLNAME="col_fu_725_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:30" STORAGESUBTYPE="" URAM="0" VARIABLE="col"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp7_fu_561_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:60" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="sub" PRAGMA="" RTLNAME="sum_8_fu_579_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="sum_5_fu_589_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_307_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:146" STORAGESUBTYPE="" URAM="0" VARIABLE="col_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp4_fu_715_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln67_fu_745_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln67"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="add_ln122_fu_775_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:122" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln122"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="sum_3_fu_781_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_869_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="sub" PRAGMA="" RTLNAME="sum_6_fu_887_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="sum_fu_897_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_88_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_307_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:125" STORAGESUBTYPE="" URAM="0" VARIABLE="col_5"/>
+                <BindNode BINDTYPE="storage" BRAM="3" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="linebuf_1_U" SOURCE="" STORAGESIZE="10 2448 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_1p" URAM="0" VARIABLE="linebuf_1"/>
+                <BindNode BINDTYPE="storage" BRAM="3" BUNDLEDNAME="" DISPNAME="bind_storage ram_1p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_1p" PRAGMA="" RTLNAME="linebuf_2_U" SOURCE="" STORAGESIZE="10 2448 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_1p" URAM="0" VARIABLE="linebuf_2"/>
+            </BindNodes>
+        </Module>
+        <Module>
+            <Name>conv2d_3x3</Name>
+            <Loops>
+                <VITIS_LOOP_86_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>6.490</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>undef</Best-caseLatency>
+                    <Average-caseLatency>undef</Average-caseLatency>
+                    <Worst-caseLatency>undef</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>undef</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_86_1>
+                        <Name>VITIS_LOOP_86_1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>2049</TripCount>
+                        <Latency>undef</Latency>
+                        <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+                        <IterationLatency>undef</IterationLatency>
+                        <PipelineDepth>undef</PipelineDepth>
+                        <PipelineType>no</PipelineType>
+                        <InstanceList>
+                            <Instance>grp_conv2d_3x3_Pipeline_VITIS_LOOP_88_2_fu_147</Instance>
+                        </InstanceList>
+                    </VITIS_LOOP_86_1>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:84</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_86_1>
+                            <Name>VITIS_LOOP_86_1</Name>
+                            <IssueType>-</IssueType>
+                            <ViolationType>-</ViolationType>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:199</SourceLocation>
+                        </VITIS_LOOP_86_1>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <BRAM_18K>6</BRAM_18K>
+                    <AVAIL_BRAM>216</AVAIL_BRAM>
+                    <UTIL_BRAM>2</UTIL_BRAM>
+                    <FF>379</FF>
+                    <AVAIL_FF>74880</AVAIL_FF>
+                    <UTIL_FF>~0</UTIL_FF>
+                    <LUT>1149</LUT>
+                    <AVAIL_LUT>37440</AVAIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_86_1" OPTYPE="add" PRAGMA="" RTLNAME="row_3_fu_303_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:199" STORAGESUBTYPE="" URAM="0" VARIABLE="row_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_86_1" OPTYPE="sub" PRAGMA="" RTLNAME="sum_10_fu_334_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_86_1" OPTYPE="sub" PRAGMA="" RTLNAME="sum_fu_387_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sum"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_86_1" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln67_fu_448_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:67" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln67"/>
             </BindNodes>
         </Module>
     </ModuleInformation>
     <FIFOInformation/>
     <UserConfigCommands>
-        <config_cosim wave_debug="0"/>
+        <config_cosim wave_debug="1"/>
     </UserConfigCommands>
     <Args>
         <Arg ArgName="input" index="0" direction="in" srcType="stream&lt;ap_uint&lt;10&gt;, 0&gt;&amp;" srcSize="16">
@@ -363,6 +441,9 @@
         </section>
     </ReportSWInterface>
     <ResolutionUrl key="ZZZ">docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&amp;url=ug1448-hls-guidance&amp;resourceid=ZZZ.html</ResolutionUrl>
+    <ReportBurst>
+        <section name="M_AXI Burst Information" level="0" HEADER_NOTE="Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings."/>
+    </ReportBurst>
     <PragmaReport>
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:46" status="valid" parentFunction="window&lt;rows, cols, t&gt;" variable="" isDirective="0" options=""/>
         <Pragma type="array_partition" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:47" status="valid" parentFunction="window&lt;rows, cols, t&gt;" variable="val" isDirective="0" options="variable=val dim=1 complete"/>
@@ -428,17 +509,33 @@
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1016" status="valid" parentFunction="shift_up" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1028" status="valid" parentFunction="insert_bottom" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1040" status="valid" parentFunction="insert_top" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:10" status="valid" parentFunction="conv2d_3x3" variable="input" isDirective="0" options="axis port=input"/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:11" status="valid" parentFunction="conv2d_3x3" variable="output" isDirective="0" options="axis port=output"/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:12" status="valid" parentFunction="conv2d_3x3" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
-        <Pragma type="array_partition" location="../conv2d_hls.cpp:25" status="valid" parentFunction="conv2d_3x3" variable="kernel" isDirective="0" options="variable=kernel complete dim=0"/>
-        <Pragma type="array_partition" location="../conv2d_hls.cpp:26" status="valid" parentFunction="conv2d_3x3" variable="window" isDirective="0" options="variable=window complete dim=0"/>
-        <Pragma type="pipeline" location="../conv2d_hls.cpp:32" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:47" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:50" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:27" status="valid" parentFunction="shift_register" variable="window" isDirective="0" options="variable=window complete dim=0"/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:44" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:47" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:58" status="valid" parentFunction="sobelconvolve" variable="kernel" isDirective="0" options="variable=kernel complete dim=0"/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:63" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:66" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:79" status="valid" parentFunction="conv2d_3x3" variable="input" isDirective="0" options="axis port=input"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:80" status="valid" parentFunction="conv2d_3x3" variable="output" isDirective="0" options="axis port=output"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:81" status="valid" parentFunction="conv2d_3x3" variable="return" isDirective="0" options="ap_ctrl_none port=return"/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:82" status="valid" parentFunction="conv2d_3x3" variable="window_adjust" isDirective="0" options="variable=window_adjust complete dim=0"/>
+        <Pragma type="pipeline" location="../conv2d_hls.cpp:87" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../conv2d_hls.cpp:89" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:100" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:104" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:115" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:118" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:135" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:139" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:158" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:162" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:173" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:177" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:188" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:191" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
     </PragmaReport>
     <AutoPragmaReport>
-        <AutoPragma type="array_partition" parentFunction="conv2d_3x3" options="dim=1 type=cyclic factor=3 variable=linebuf_0" pragmaLocId="../conv2d_hls.cpp:21:0" srcPragmaType="pipeline" srcPragmaLoc="../conv2d_hls.cpp:32" srcPragmaSource="pragma" srcIsDirective="0" variable="linebuf_0" varLoc=""/>
+        <AutoPragma type="array_partition" parentFunction="conv2d_3x3" options="dim=1 type=complete  variable=linebuf" pragmaLocId="../conv2d_hls.cpp:19:0" srcPragmaType="pipeline" srcPragmaLoc="../conv2d_hls.cpp:89" srcPragmaSource="pragma" srcIsDirective="0" variable="linebuf" varLoc=""/>
     </AutoPragmaReport>
 </profile>
 

@@ -123,7 +123,7 @@ task automatic load_image;
 endtask
     
     
-conv2d_3x3  BUT 
+conv2d_3x3  DUT 
 (
         .ap_clk         (sys_clk),
         .ap_rst_n       (~sys_rst),

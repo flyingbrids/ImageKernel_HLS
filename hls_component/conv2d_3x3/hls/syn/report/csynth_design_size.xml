@@ -2,43 +2,45 @@
     <item name="Total Instructions per Compilation Phase">
         <table>
             <keys size="4">Phase, Step, Instructions, Description</keys>
-            <column name="Compile/Link">, 571, After all functions are compiled and linked into a single design</column>
+            <column name="Compile/Link">, 2066, After all functions are compiled and linked into a single design</column>
             <column name="">, , </column>
             <column name="Unroll/Inline">, , After user unroll and inline pragmas are applied</column>
-            <column name="">(1) unroll, 346, user unroll pragmas are applied</column>
-            <column name="">(2) simplification, 129, simplification of applied user unroll pragmas</column>
-            <column name="">(3) inline, 105, user inline pragmas are applied</column>
-            <column name="">(4) simplification, 104, simplification of applied user inline pragmas</column>
+            <column name="">(1) unroll,   905, user unroll pragmas are applied</column>
+            <column name="">(2) simplification,   463, simplification of applied user unroll pragmas</column>
+            <column name="">(3) inline,   458, user inline pragmas are applied</column>
+            <column name="">(4) simplification,   439, simplification of applied user inline pragmas</column>
             <column name="">, , </column>
             <column name="Array/Struct">, , After user array partition and struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(1) array partition, 132, user array partition pragmas are applied</column>
-            <column name="">(2) simplification, 114, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
-            <column name="">(3) aggregate/disaggregate , 114, user struct aggregate/disaggregate pragmas are applied</column>
-            <column name="">(4) array reshape, 114, apply array reshape pragmas</column>
-            <column name="">(5) access patterns, 114, array access pattern optmizations</column>
+            <column name="">(1) array partition,   474, user array partition pragmas are applied</column>
+            <column name="">(2) simplification,   431, simplification of applied user array partition &amp; struct aggregate/disaggregate pragmas</column>
+            <column name="">(3) aggregate/disaggregate ,   431, user struct aggregate/disaggregate pragmas are applied</column>
+            <column name="">(4) array reshape,   431, apply array reshape pragmas</column>
+            <column name="">(5) access patterns,   431, array access pattern optmizations</column>
             <column name="">, , </column>
             <column name="Performance">, , After transformations are applied to meet performance pragma targets</column>
-            <column name="">(1) loop simplification, 114, loop and instruction simplification</column>
-            <column name="">(2) parallelization, 114, loops are unrolled or pipelined to meet performance targets</column>
-            <column name="">(3) array partition, 293, arrays are partitioned to meet performance targets</column>
-            <column name="">(4) simplification, 245, simplification of design after performance transformations</column>
+            <column name="">(1) loop simplification,   431, loop and instruction simplification</column>
+            <column name="">(2) parallelization,   405, loops are unrolled or pipelined to meet performance targets</column>
+            <column name="">(3) array partition,   420, arrays are partitioned to meet performance targets</column>
+            <column name="">(4) simplification,   408, simplification of design after performance transformations</column>
             <column name="">, , </column>
             <column name="HW Transforms">, , After hardware transfomations</column>
-            <column name="">(1) lowering, 249, initial conversion to HW specific instructions</column>
-            <column name="">(2) optimizations, 267, high level synthesis optimizations</column>
+            <column name="">(1) lowering,   417, initial conversion to HW specific instructions</column>
+            <column name="">(2) optimizations,   438, high level synthesis optimizations</column>
         </table>
     </item>
     <item name="Instructions per Function for each Compilation Phase">
         <hiertable>
             <header size="7" col0="Function" col1="Location" col2="Compile/Link" col3="Unroll/Inline" col4="Array/Struct" col5="Performance" col6="HW Transforms"/>
             <rows>
-                <row id="0" col0="conv2d_3x3" col1="conv2d_hls.cpp:9" col2="571" col3="104" col4="114" col5="245" col6="267">
-                    <row id="4" col0="LineBuffer" col1="xf_video_mem.hpp:698" col2="10" col3="" col4="" col5="" col6=""/>
-                    <row id="1" col0="shift_up" col1="xf_video_mem.hpp:1014" col2="240" col3="" col4="" col5="" col6="">
-                        <row id="2" col0="shift_pixels_up" col1="xf_video_mem.hpp:854" col2="238" col3="" col4="" col5="" col6=""/>
+                <row id="0" col0="conv2d_3x3" col1="conv2d_hls.cpp:78" col2="2066" col3="439" col4="431" col5="408" col6="438">
+                    <row id="4" col0="shift_register" col1="conv2d_hls.cpp:25" col2="692" col2_disp=" 692 (2 calls)" col3="" col4="" col5="" col6="">
+                        <row id="8" col0="shift_up" col1="xf_video_mem.hpp:1014" col2="480" col2_disp=" 480 (2 calls)" col3="" col4="" col5="" col6="">
+                            <row id="3" col0="shift_pixels_up" col1="xf_video_mem.hpp:854" col2="476" col2_disp=" 476 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        </row>
+                        <row id="7" col0="insert_bottom_row" col1="xf_video_mem.hpp:896" col2="26" col2_disp="  26 (2 calls)" col3="" col4="" col5="" col6=""/>
+                        <row id="1" col0="getval" col1="xf_video_mem.hpp:979" col2="96" col2_disp="  96 (6 calls)" col3="" col4="" col5="" col6=""/>
                     </row>
-                    <row id="5" col0="insert_bottom_row" col1="xf_video_mem.hpp:896" col2="13" col3="" col4="" col5="" col6=""/>
-                    <row id="3" col0="getval" col1="xf_video_mem.hpp:979" col2="16" col3="" col4="" col5="" col6=""/>
+                    <row id="2" col0="sobelConvolve" col1="conv2d_hls.cpp:56" col2="888" col2_disp=" 888 (6 calls)" col3="234" col3_disp="234 (6 calls)" col4="228" col4_disp="228 (6 calls)" col5="114" col5_disp="114 (3 calls)" col6="114" col6_disp="114 (3 calls)"/>
                 </row>
             </rows>
             <notes/>

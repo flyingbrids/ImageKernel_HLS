@@ -10,7 +10,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-entity conv2d_3x3_flow_control_loop_pipe_no_ap_cont is
+entity conv2d_3x3_flow_control_loop_pipe_sequential_init is
 port (
     ap_clk             : in  std_logic;
     ap_rst             : in  std_logic;
@@ -34,10 +34,11 @@ port (
     ap_loop_exit_ready : in  std_logic;
     ap_loop_exit_done  : in  std_logic
 );
-end entity conv2d_3x3_flow_control_loop_pipe_no_ap_cont;
+end entity conv2d_3x3_flow_control_loop_pipe_sequential_init;
 
-architecture behav of conv2d_3x3_flow_control_loop_pipe_no_ap_cont is
+architecture behav of conv2d_3x3_flow_control_loop_pipe_sequential_init is
     signal ap_done_cache : std_logic := '0';
+    signal ap_loop_init_int : std_logic := '1';
 begin
     ap_start_int    <= ap_start;   
     ap_continue_int <= '1';
@@ -51,14 +52,16 @@ begin
     begin
         if rising_edge(ap_clk) then
             if (ap_rst = '1') then
-                ap_loop_init <= '1';
-            elsif (ap_loop_exit_ready = '1') then
-                ap_loop_init <= '1';
+                ap_loop_init_int <= '1';
+            elsif (ap_loop_exit_done = '1') then
+                ap_loop_init_int <= '1';
             elsif (ap_ready_int = '1') then
-                ap_loop_init <= '0';
+                ap_loop_init_int <= '0';
             end if;
         end if;
     end process genLoopInit;
+
+    ap_loop_init <= ap_loop_init_int and ap_start;
 
     -- if no ap_continue port and current module is not top module, 
     -- ap_done handshakes with ap_start. Internally, flow control sends out 

@@ -6,11 +6,11 @@
 
 <UserAssignments>
 <unit>ns</unit>
-<ProductFamily>azynq</ProductFamily>
-<Part>xa7z010-clg225-1I</Part>
+<ProductFamily>zynquplus</ProductFamily>
+<Part>xczu1cg-sbva484-1-e</Part>
 <TopModelName>conv2d_3x3</TopModelName>
-<TargetClockPeriod>50.00</TargetClockPeriod>
-<ClockUncertainty>13.50</ClockUncertainty>
+<TargetClockPeriod>10.00</TargetClockPeriod>
+<ClockUncertainty>2.70</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
 </UserAssignments>
 
@@ -18,59 +18,58 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>16.091</EstimatedClockPeriod>
+<EstimatedClockPeriod>6.490</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>10045038</Best-caseLatency>
-<Average-caseLatency>10045038</Average-caseLatency>
-<Worst-caseLatency>10045038</Worst-caseLatency>
-<Best-caseRealTimeLatency>0.502 sec</Best-caseRealTimeLatency>
-<Average-caseRealTimeLatency>0.502 sec</Average-caseRealTimeLatency>
-<Worst-caseRealTimeLatency>0.502 sec</Worst-caseRealTimeLatency>
-<Interval-min>10045039</Interval-min>
-<Interval-max>10045039</Interval-max>
+<Best-caseLatency>undef</Best-caseLatency>
+<Average-caseLatency>undef</Average-caseLatency>
+<Worst-caseLatency>undef</Worst-caseLatency>
+<Best-caseRealTimeLatency>undef</Best-caseRealTimeLatency>
+<Average-caseRealTimeLatency>undef</Average-caseRealTimeLatency>
+<Worst-caseRealTimeLatency>undef</Worst-caseRealTimeLatency>
+<Interval-min>undef</Interval-min>
+<Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-<Slack>36.50</Slack>
-<TripCount>5022500</TripCount>
-<Latency>10045036</Latency>
-<AbsoluteTimeLatency>502251800</AbsoluteTimeLatency>
-<PipelineII>2</PipelineII>
-<PipelineDepth>39</PipelineDepth>
+<VITIS_LOOP_86_1>
+<Slack>7.30</Slack>
+<TripCount>2049</TripCount>
+<Latency>undef</Latency>
+<AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
+<IterationLatency>undef</IterationLatency>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+</VITIS_LOOP_86_1>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:23</SourceLocation>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:84</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_28_1_VITIS_LOOP_30_2>
-<Name>VITIS_LOOP_28_1_VITIS_LOOP_30_2</Name>
-<IssueType>II Violation</IssueType>
-<ViolationType>Resource Limitation</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:28</SourceLocation>
-</VITIS_LOOP_28_1_VITIS_LOOP_30_2>
+<VITIS_LOOP_86_1>
+<Name>VITIS_LOOP_86_1</Name>
+<IssueType>-</IssueType>
+<ViolationType>-</ViolationType>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:199</SourceLocation>
+</VITIS_LOOP_86_1>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>9</BRAM_18K>
-<DSP>6</DSP>
-<FF>4113</FF>
-<LUT>3402</LUT>
+<BRAM_18K>6</BRAM_18K>
+<FF>379</FF>
+<LUT>1149</LUT>
 <URAM>0</URAM>
+<DSP>0</DSP>
 </Resources>
 <AvailableResources>
-<BRAM_18K>120</BRAM_18K>
-<DSP>80</DSP>
-<FF>35200</FF>
-<LUT>17600</LUT>
+<BRAM_18K>216</BRAM_18K>
+<DSP>216</DSP>
+<FF>74880</FF>
+<LUT>37440</LUT>
 <URAM>0</URAM>
 </AvailableResources>
 </AreaEstimates>
@@ -99,18 +98,6 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_r_TVALID</name>
-<Object>input_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
 <name>input_r_TDATA</name>
 <Object>input_r</Object>
 <Type>pointer</Type>
@@ -123,6 +110,18 @@
 <CType>int</CType>
 </RtlPorts>
 <RtlPorts>
+<name>input_r_TVALID</name>
+<Object>input_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
 <name>input_r_TREADY</name>
 <Object>input_r</Object>
 <Type>pointer</Type>
@@ -130,18 +129,6 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-<CType>int</CType>
-</RtlPorts>
-<RtlPorts>
-<name>output_r_TREADY</name>
-<Object>output_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig>register, both mode</IOConfig>
-<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>
@@ -166,6 +153,18 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+<CType>int</CType>
+</RtlPorts>
+<RtlPorts>
+<name>output_r_TREADY</name>
+<Object>output_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>axis</IOProtocol>
+<IOConfig>register, both mode</IOConfig>
+<Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 <CType>int</CType>

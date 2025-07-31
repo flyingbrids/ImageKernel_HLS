@@ -8,7 +8,7 @@
 
 `timescale 1 ns / 1 ps
 
-module conv2d_3x3_flow_control_loop_pipe_no_ap_cont(
+module conv2d_3x3_flow_control_loop_pipe_sequential_init(
         ap_clk,
         ap_rst,
         ap_start,
@@ -39,7 +39,8 @@ output  ap_continue_int;
 
 //Init live in variables
 output   ap_loop_init;
-reg ap_loop_init;
+wire     ap_loop_init;
+reg ap_loop_init_int;
 reg ap_done;
 reg ap_done_cache;
 
@@ -49,7 +50,7 @@ input   ap_loop_exit_done;
 
 // power-on initialization
 initial begin
-#0 ap_loop_init = 1'b1;
+#0 ap_loop_init_int = 1'b1;
 #0 ap_done_cache = 1'b0;
 end
 
@@ -66,13 +67,15 @@ assign ap_ready = ap_loop_exit_ready;
 always @ (posedge ap_clk)
 begin
     if (ap_rst == 1'b1) begin
-        ap_loop_init <= 1'b1;
-    end else if(ap_loop_exit_ready == 1'b1) begin
-        ap_loop_init <= 1'b1;
+        ap_loop_init_int <= 1'b1;
+    end else if(ap_loop_exit_done == 1'b1) begin
+        ap_loop_init_int <= 1'b1;
     end else if(ap_ready_int == 1'b1) begin
-        ap_loop_init <= 1'b0;
+        ap_loop_init_int <= 1'b0;
     end
 end
+
+assign ap_loop_init = ap_loop_init_int & ap_start;
 
 // if no ap_continue port and current module is not top module, 
 // ap_done handshakes with ap_start. Internally, flow control sends out 
