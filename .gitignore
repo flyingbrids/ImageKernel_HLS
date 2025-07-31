@@ -13,6 +13,7 @@ reports/
 #Ignore logs folder and log files
 /logs
 .log
+.pgm
 
 #Ignore lock files
 .lock

@@ -4,8 +4,6 @@
 #include <cstdint>
 #include <hls_stream.h>
 
-#define IMG_ROWS 2048
-#define IMG_COLS 2448
 #define MAX_CHAR 256
 
 int main() {

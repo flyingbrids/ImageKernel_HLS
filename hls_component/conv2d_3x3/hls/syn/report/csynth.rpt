@@ -4,24 +4,26 @@
 == Synthesis Summary Report of 'conv2d_3x3'
 ================================================================
 + General Information: 
-    * Date:           Wed Jul 30 13:32:36 2025
+    * Date:           Thu Jul 31 11:30:13 2025
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        conv2d_3x3
     * Solution:       hls (Vivado IP Flow Target)
-    * Product family: azynq
-    * Target device:  xa7z010-clg225-1I
+    * Product family: zynquplus
+    * Target device:  xczu1cg-sbva484-1-e
     
 
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +------------------------------------+------+-------+----------+-----------+----------+----------+---------+----------+--------+--------+------------+------------+-----+
-    |               Modules              | Issue|       | Latency  |  Latency  | Iteration|          |   Trip  |          |        |        |            |            |     |
-    |               & Loops              | Type | Slack | (cycles) |    (ns)   |  Latency | Interval |  Count  | Pipelined|  BRAM  |   DSP  |     FF     |     LUT    | URAM|
-    +------------------------------------+------+-------+----------+-----------+----------+----------+---------+----------+--------+--------+------------+------------+-----+
-    |+ conv2d_3x3                        |     -|  20.41|  10045038|  5.023e+08|         -|  10045039|        -|        no|  9 (7%)|  6 (7%)|  4113 (11%)|  3404 (19%)|    -|
-    | o VITIS_LOOP_28_1_VITIS_LOOP_30_2  |    II|  36.50|  10045036|  5.023e+08|        39|         2|  5022500|       yes|       -|       -|           -|           -|    -|
-    +------------------------------------+------+-------+----------+-----------+----------+----------+---------+----------+--------+--------+------------+------------+-----+
+    +-----------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+----+-----------+-----------+-----+
+    |                 Modules                 | Issue|      | Latency | Latency| Iteration|         | Trip |          |        |    |           |           |     |
+    |                 & Loops                 | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|  BRAM  | DSP|     FF    |    LUT    | URAM|
+    +-----------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+----+-----------+-----------+-----+
+    |+ conv2d_3x3                             |     -|  0.81|        -|       -|         -|        -|     -|        no|  6 (2%)|   -|  379 (~0%)|  1149 (3%)|    -|
+    | o VITIS_LOOP_86_1                       |     -|  7.30|        -|       -|         -|        -|     -|        no|       -|   -|          -|          -|    -|
+    |  + conv2d_3x3_Pipeline_VITIS_LOOP_88_2  |     -|  0.81|        -|       -|         -|        -|     -|        no|  6 (2%)|   -|  208 (~0%)|   773 (2%)|    -|
+    |   o VITIS_LOOP_88_2                     |     -|  7.30|        -|       -|         3|        1|     -|       yes|       -|   -|          -|          -|    -|
+    +-----------------------------------------+------+------+---------+--------+----------+---------+------+----------+--------+----+-----------+-----------+-----+
 
 
 ================================================================
@@ -66,45 +68,50 @@
 
 
 ================================================================
+== M_AXI Burst Information
+================================================================
+ Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
+
+
+================================================================
 == Bind Op Report
 ================================================================
-+---------------------------+-----+--------+------------+-----+--------+---------+
-| Name                      | DSP | Pragma | Variable   | Op  | Impl   | Latency |
-+---------------------------+-----+--------+------------+-----+--------+---------+
-| + conv2d_3x3              | 6   |        |            |     |        |         |
-|   add_ln28_fu_499_p2      |     |        | add_ln28   | add | fabric | 0       |
-|   add_ln28_1_fu_525_p2    |     |        | add_ln28_1 | add | fabric | 0       |
-|   mul_12ns_14ns_25_1_1_U4 | 1   |        | mul_ln30   | mul | auto   | 0       |
-|   col_adj_2_fu_613_p2     |     |        | col_adj_2  | add | fabric | 0       |
-|   add_ln58_fu_625_p2      |     |        | add_ln58   | add | fabric | 0       |
-|   mul_12ns_14ns_25_1_1_U2 | 1   |        | mul_ln984  | mul | auto   | 0       |
-|   mul_32ns_34ns_65_1_1_U1 | 4   |        | mul_ln23   | mul | auto   | 0       |
-|   sub_ln23_fu_902_p2      |     |        | sub_ln23   | sub | fabric | 0       |
-|   tmp_fu_971_p2           |     |        | tmp        | sub | fabric | 0       |
-|   sub_ln59_fu_936_p2      |     |        | sub_ln59   | sub | fabric | 0       |
-|   add_ln59_fu_1015_p2     |     |        | add_ln59   | add | fabric | 0       |
-|   col_fu_725_p2           |     |        | col        | add | fabric | 0       |
-+---------------------------+-----+--------+------------+-----+--------+---------+
++----------------------------------------+-----+--------+-----------+-----+--------+---------+
+| Name                                   | DSP | Pragma | Variable  | Op  | Impl   | Latency |
++----------------------------------------+-----+--------+-----------+-----+--------+---------+
+| + conv2d_3x3                           | 0   |        |           |     |        |         |
+|   row_3_fu_303_p2                      |     |        | row_3     | add | fabric | 0       |
+|   sum_10_fu_334_p2                     |     |        | sum_10    | sub | fabric | 0       |
+|   sum_fu_387_p2                        |     |        | sum       | sub | fabric | 0       |
+|   sub_ln67_fu_448_p2                   |     |        | sub_ln67  | sub | fabric | 0       |
+|  + conv2d_3x3_Pipeline_VITIS_LOOP_88_2 | 0   |        |           |     |        |         |
+|    tmp7_fu_561_p2                      |     |        | tmp7      | sub | fabric | 0       |
+|    sum_8_fu_579_p2                     |     |        | sum_8     | sub | fabric | 0       |
+|    sum_5_fu_589_p2                     |     |        | sum_5     | add | fabric | 0       |
+|    grp_fu_307_p2                       |     |        | col_4     | add | fabric | 0       |
+|    tmp4_fu_715_p2                      |     |        | tmp4      | sub | fabric | 0       |
+|    add_ln67_fu_745_p2                  |     |        | add_ln67  | add | fabric | 0       |
+|    add_ln122_fu_775_p2                 |     |        | add_ln122 | add | fabric | 0       |
+|    sum_3_fu_781_p2                     |     |        | sum_3     | add | fabric | 0       |
+|    tmp_fu_869_p2                       |     |        | tmp       | sub | fabric | 0       |
+|    sum_6_fu_887_p2                     |     |        | sum_6     | sub | fabric | 0       |
+|    sum_fu_897_p2                       |     |        | sum       | add | fabric | 0       |
+|    grp_fu_307_p2                       |     |        | col_5     | add | fabric | 0       |
++----------------------------------------+-----+--------+-----------+-----+--------+---------+
 
 
 ================================================================
 == Storage Report
 ================================================================
-+---------------+---------------+------+------+------+--------+-----------+------+---------+------------------+
-| Name          | Usage         | Type | BRAM | URAM | Pragma | Variable  | Impl | Latency | Bitwidth, Depth, |
-|               |               |      |      |      |        |           |      |         | Banks            |
-+---------------+---------------+------+------+------+--------+-----------+------+---------+------------------+
-| + conv2d_3x3  |               |      | 9    | 0    |        |           |      |         |                  |
-|   linebuf_U   | ram_s2p array |      | 1    |      | yes    | linebuf   | bram | 1       | 10, 816, 1       |
-|   linebuf_1_U | ram_s2p array |      | 1    |      | yes    | linebuf_1 | bram | 1       | 10, 816, 1       |
-|   linebuf_2_U | ram_s2p array |      | 1    |      | yes    | linebuf_2 | bram | 1       | 10, 816, 1       |
-|   linebuf_3_U | ram_s2p array |      | 1    |      | yes    | linebuf_3 | bram | 1       | 10, 816, 1       |
-|   linebuf_4_U | ram_s2p array |      | 1    |      | yes    | linebuf_4 | bram | 1       | 10, 816, 1       |
-|   linebuf_5_U | ram_s2p array |      | 1    |      | yes    | linebuf_5 | bram | 1       | 10, 816, 1       |
-|   linebuf_6_U | ram_s2p array |      | 1    |      | yes    | linebuf_6 | bram | 1       | 10, 816, 1       |
-|   linebuf_7_U | ram_s2p array |      | 1    |      | yes    | linebuf_7 | bram | 1       | 10, 816, 1       |
-|   linebuf_8_U | ram_s2p array |      | 1    |      | yes    | linebuf_8 | bram | 1       | 10, 816, 1       |
-+---------------+---------------+------+------+------+--------+-----------+------+---------+------------------+
++----------------------------------------+--------+------+------+------+--------+-----------+------+---------+------------------+
+| Name                                   | Usage  | Type | BRAM | URAM | Pragma | Variable  | Impl | Latency | Bitwidth, Depth, |
+|                                        |        |      |      |      |        |           |      |         | Banks            |
++----------------------------------------+--------+------+------+------+--------+-----------+------+---------+------------------+
+| + conv2d_3x3                           |        |      | 6    | 0    |        |           |      |         |                  |
+|  + conv2d_3x3_Pipeline_VITIS_LOOP_88_2 |        |      | 6    | 0    |        |           |      |         |                  |
+|    linebuf_1_U                         | ram_1p |      | 3    |      |        | linebuf_1 | auto | 1       | 10, 2448, 1      |
+|    linebuf_2_U                         | ram_1p |      | 3    |      |        | linebuf_2 | auto | 1       | 10, 2448, 1      |
++----------------------------------------+--------+------+------+------+--------+-----------+------+---------+------------------+
 
 
 ================================================================
@@ -118,85 +125,101 @@
 +---------------+------------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------------------+
 
 * Valid Pragma Syntax
-+-----------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| Type            | Options                             | Location                                                                                                                           |
-+-----------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:46 in window<rows, cols, t>                                     |
-| array_partition | variable=val dim=1 complete         | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:47 in window<rows, cols, t>, val                                |
-| array_partition | variable=val dim=2 complete         | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:48 in window<rows, cols, t>, val                                |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:112 in shift_pixels_left                                        |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:124 in shift_pixels_left                                        |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:128 in shift_pixels_left                                        |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:156 in shift_pixels_right                                       |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:168 in shift_pixels_right                                       |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:172 in shift_pixels_right                                       |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:200 in shift_pixels_up                                          |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:212 in shift_pixels_up                                          |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:216 in shift_pixels_up                                          |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:244 in shift_pixels_down                                        |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:256 in shift_pixels_down                                        |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:260 in shift_pixels_down                                        |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:287 in insert_pixel                                             |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:320 in insert_row                                               |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:332 in insert_row                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:359 in insert_top_row                                           |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:392 in insert_bottom_row                                        |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:425 in insert_col                                               |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:437 in insert_col                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:464 in insert_left_col                                          |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:497 in insert_right_col                                         |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:530 in getval                                                   |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:542 in operator()                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:579 in shift_left                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:592 in shift_right                                              |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:605 in shift_up                                                 |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:618 in shift_down                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:631 in insert                                                   |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:644 in insert_top                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:657 in insert_bottom                                            |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:670 in insert_left                                              |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:683 in insert_right                                             |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:700 in linebuffer<rows, cols, t, mem_type, reshape_factor>      |
-| dependence      | variable=val inter false            | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:701 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| dependence      | variable=val intra false            | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:702 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_1P impl=BRAM  | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:711 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_1P impl=URAM  | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:716 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_2P impl=BRAM  | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:721 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_2P impl=URAM  | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:726 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_S2P impl=BRAM | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:731 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_S2P impl=URAM | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:736 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_T2P impl=BRAM | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:741 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| bind_storage    | variable=val type=RAM_T2P impl=URAM | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:746 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| array_partition | variable=val complete dim=1         | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:755 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:813 in shift_pixels_down                                        |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:826 in shift_pixels_down                                        |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:856 in shift_pixels_up                                          |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:869 in shift_pixels_up                                          |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:898 in insert_bottom_row                                        |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:931 in insert_top_row                                           |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:964 in get_col                                                  |
-| unroll          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:970 in get_col                                                  |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:981 in getval                                                   |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:992 in operator()                                               |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1004 in shift_down                                              |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1016 in shift_up                                                |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1028 in insert_bottom                                           |
-| inline          |                                     | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1040 in insert_top                                              |
-| interface       | axis port=input                     | ../conv2d_hls.cpp:10 in conv2d_3x3, input                                                                                          |
-| interface       | axis port=output                    | ../conv2d_hls.cpp:11 in conv2d_3x3, output                                                                                         |
-| interface       | ap_ctrl_none port=return            | ../conv2d_hls.cpp:12 in conv2d_3x3, return                                                                                         |
-| array_partition | variable=kernel complete dim=0      | ../conv2d_hls.cpp:25 in conv2d_3x3, kernel                                                                                         |
-| array_partition | variable=window complete dim=0      | ../conv2d_hls.cpp:26 in conv2d_3x3, window                                                                                         |
-| pipeline        |                                     | ../conv2d_hls.cpp:32 in conv2d_3x3                                                                                                 |
-| unroll          |                                     | ../conv2d_hls.cpp:47 in conv2d_3x3                                                                                                 |
-| unroll          |                                     | ../conv2d_hls.cpp:50 in conv2d_3x3                                                                                                 |
-+-----------------+-------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
++-----------------+---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| Type            | Options                               | Location                                                                                                                           |
++-----------------+---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:46 in window<rows, cols, t>                                     |
+| array_partition | variable=val dim=1 complete           | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:47 in window<rows, cols, t>, val                                |
+| array_partition | variable=val dim=2 complete           | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:48 in window<rows, cols, t>, val                                |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:112 in shift_pixels_left                                        |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:124 in shift_pixels_left                                        |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:128 in shift_pixels_left                                        |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:156 in shift_pixels_right                                       |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:168 in shift_pixels_right                                       |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:172 in shift_pixels_right                                       |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:200 in shift_pixels_up                                          |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:212 in shift_pixels_up                                          |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:216 in shift_pixels_up                                          |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:244 in shift_pixels_down                                        |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:256 in shift_pixels_down                                        |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:260 in shift_pixels_down                                        |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:287 in insert_pixel                                             |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:320 in insert_row                                               |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:332 in insert_row                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:359 in insert_top_row                                           |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:392 in insert_bottom_row                                        |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:425 in insert_col                                               |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:437 in insert_col                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:464 in insert_left_col                                          |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:497 in insert_right_col                                         |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:530 in getval                                                   |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:542 in operator()                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:579 in shift_left                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:592 in shift_right                                              |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:605 in shift_up                                                 |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:618 in shift_down                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:631 in insert                                                   |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:644 in insert_top                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:657 in insert_bottom                                            |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:670 in insert_left                                              |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:683 in insert_right                                             |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:700 in linebuffer<rows, cols, t, mem_type, reshape_factor>      |
+| dependence      | variable=val inter false              | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:701 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| dependence      | variable=val intra false              | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:702 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_1P impl=BRAM    | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:711 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_1P impl=URAM    | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:716 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_2P impl=BRAM    | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:721 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_2P impl=URAM    | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:726 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_S2P impl=BRAM   | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:731 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_S2P impl=URAM   | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:736 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_T2P impl=BRAM   | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:741 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| bind_storage    | variable=val type=RAM_T2P impl=URAM   | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:746 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| array_partition | variable=val complete dim=1           | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:755 in linebuffer<rows, cols, t, mem_type, reshape_factor>, val |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:813 in shift_pixels_down                                        |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:826 in shift_pixels_down                                        |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:856 in shift_pixels_up                                          |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:869 in shift_pixels_up                                          |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:898 in insert_bottom_row                                        |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:931 in insert_top_row                                           |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:964 in get_col                                                  |
+| unroll          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:970 in get_col                                                  |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:981 in getval                                                   |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:992 in operator()                                               |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1004 in shift_down                                              |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1016 in shift_up                                                |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1028 in insert_bottom                                           |
+| inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1040 in insert_top                                              |
+| array_partition | variable=window complete dim=0        | ../conv2d_hls.cpp:27 in shift_register, window                                                                                     |
+| unroll          |                                       | ../conv2d_hls.cpp:44 in shift_register                                                                                             |
+| unroll          |                                       | ../conv2d_hls.cpp:47 in shift_register                                                                                             |
+| array_partition | variable=kernel complete dim=0        | ../conv2d_hls.cpp:58 in sobelconvolve, kernel                                                                                      |
+| unroll          |                                       | ../conv2d_hls.cpp:63 in sobelconvolve                                                                                              |
+| unroll          |                                       | ../conv2d_hls.cpp:66 in sobelconvolve                                                                                              |
+| interface       | axis port=input                       | ../conv2d_hls.cpp:79 in conv2d_3x3, input                                                                                          |
+| interface       | axis port=output                      | ../conv2d_hls.cpp:80 in conv2d_3x3, output                                                                                         |
+| interface       | ap_ctrl_none port=return              | ../conv2d_hls.cpp:81 in conv2d_3x3, return                                                                                         |
+| array_partition | variable=window_adjust complete dim=0 | ../conv2d_hls.cpp:82 in conv2d_3x3, window_adjust                                                                                  |
+| pipeline        |                                       | ../conv2d_hls.cpp:87 in conv2d_3x3                                                                                                 |
+| pipeline        | II = 1                                | ../conv2d_hls.cpp:89 in conv2d_3x3                                                                                                 |
+| unroll          |                                       | ../conv2d_hls.cpp:100 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:104 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:115 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:118 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:135 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:139 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:158 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:162 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:173 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:177 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:188 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:191 in conv2d_3x3                                                                                                |
++-----------------+---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 * Inferred Pragmas
-+-------------------------------+-----------------+-----------------------------------------------+----------------------------------+
-| Source Pragma                 | Inferred Pragma | Options                                       | Location                         |
-+-------------------------------+-----------------+-----------------------------------------------+----------------------------------+
-| pipeline ../conv2d_hls.cpp:32 | array_partition | dim=1 type=cyclic factor=3 variable=linebuf_0 | variable linebuf_0 in conv2d_3x3 |
-+-------------------------------+-----------------+-----------------------------------------------+----------------------------------+
++-------------------------------+-----------------+---------------------------------------+--------------------------------+
+| Source Pragma                 | Inferred Pragma | Options                               | Location                       |
++-------------------------------+-----------------+---------------------------------------+--------------------------------+
+| pipeline ../conv2d_hls.cpp:89 | array_partition | dim=1 type=complete  variable=linebuf | variable linebuf in conv2d_3x3 |
++-------------------------------+-----------------+---------------------------------------+--------------------------------+
 
 
