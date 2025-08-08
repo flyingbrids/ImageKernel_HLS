@@ -24,7 +24,7 @@ module ImageFilterTB();
 localparam FRAME_CNT    = 1;   // # of test image 
 localparam CLOCK_FREQ   = 200; // MHz
 localparam CLOCK_PERIOD = (1000ns/CLOCK_FREQ);
-localparam DWIDTH       = 16;
+localparam DWIDTH       = 10;
 
 bit sys_clk;
 bit sys_rst;
@@ -89,9 +89,9 @@ function int convert2Pixel (string pixel); // covert image.hex file into 10 bits
   return pixeldata;
 endfunction
 
-logic [DWIDTH-1:0]   imageData ;
+logic [DWIDTH-1:0]   imageData[8-1:0];
 logic                imageDataVld;
-logic [DWIDTH-1:0]   filt_3x3_data ;
+logic [8*DWIDTH-1:0] filt_3x3_data;
 logic                filt_3x3_vld;
 
 task automatic load_image;
@@ -104,16 +104,18 @@ task automatic load_image;
     $fwrite(img,"P2\n%d%d\n# CREATOR: Shen\n1023\n",COL_NUM,ROW_NUM);
     @(posedge sys_clk);  
     for (i = START_ROW; i < STOP_ROW; i++) begin
-        for (j=0; j<COL_NUM; j++) begin
-            $fgets(pixel,file);
-            imageData = convert2Pixel(pixel);
-            imageDataVld = 1'b1;             
-            $fwrite(img,"%d\n",imageData); 
+       for (j=0; j<PIX_PER_SLOT; j++) begin
+            for (k = 0; k < 8; k++) begin
+                $fgets(pixel,file);
+                imageData[k] = convert2Pixel(pixel);
+                $fwrite(img,"%d\n",imageData[k]);
+            end
+            imageDataVld = 1'b1;
             @(posedge sys_clk); 
             if (input_r_TREADY == 0) begin
                 wait (input_r_TREADY);
                 @(posedge sys_clk);    
-            end      
+            end                 
          end
     $display("<<TESTBENCH NOTE>> image row %d is captured!",i);
     end
@@ -121,7 +123,15 @@ task automatic load_image;
     $fclose(img);
   end
 endtask
-    
+
+logic [8*DWIDTH-1:0] imageData_in;    
+genvar k ;
+generate 
+ for (k=0; k<8; k++) begin: order_swap // the process module process 8 pixel per clock, and the pixel order should be reversed.
+     assign imageData_in[(7-k)*DWIDTH +: DWIDTH] = imageData[k];
+ end
+endgenerate
+
     
 conv2d_3x3  DUT 
 (
@@ -129,7 +139,7 @@ conv2d_3x3  DUT
         .ap_rst_n       (~sys_rst),
         .input_r_TVALID (imageDataVld),
         .output_r_TREADY(1'b1),
-        .input_r_TDATA  (imageData),
+        .input_r_TDATA  (imageData_in),
         .input_r_TREADY (input_r_TREADY),
         .output_r_TDATA (filt_3x3_data),
         .output_r_TVALID(filt_3x3_vld)
@@ -147,11 +157,12 @@ int img ;
       do begin
         do begin
           @(posedge sys_clk);
-           if(filt_3x3_vld ) begin             
-               $fwrite(img,"%d\n",filt_3x3_data);             
-               y=y+1;
-            end
-         end while (y<COL_NUM);
+           if(filt_3x3_vld ) begin  
+            for (int i=LANE_N-1; i>=0; i--)
+               $fwrite(img,"%d\n",filt_3x3_data[DWIDTH*i +: DWIDTH]);  
+            y=y+1;
+           end
+        end while (y<PIX_PER_SLOT); 
         y=0;
         x=x+1;
       end while (x<STOP_ROW);     
@@ -171,12 +182,12 @@ initial begin
     START_ROW     = 0;
     STOP_ROW      = 2048;
     ROW_NUM       = STOP_ROW - START_ROW;
-	 PIX_PER_SLOT  = 306;
-	 LANE_N        = 8;
+	PIX_PER_SLOT  = 306;
+	LANE_N        = 8;
     COL_NUM       = PIX_PER_SLOT * LANE_N;
-	 wait_for_new_frame();
-	 fork
-	    load_image();
+	wait_for_new_frame();
+	fork
+	     load_image();
 		 capture_3x3();
 	 join
   end
