@@ -18,7 +18,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>6.490</EstimatedClockPeriod>
+<EstimatedClockPeriod>5.075</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -32,7 +32,7 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_86_1>
+<VITIS_LOOP_134_1>
 <Slack>7.30</Slack>
 <TripCount>2049</TripCount>
 <Latency>undef</Latency>
@@ -40,28 +40,28 @@
 <IterationLatency>undef</IterationLatency>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_86_1>
+</VITIS_LOOP_134_1>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:84</SourceLocation>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:131</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_86_1>
-<Name>VITIS_LOOP_86_1</Name>
+<VITIS_LOOP_134_1>
+<Name>VITIS_LOOP_134_1</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:199</SourceLocation>
-</VITIS_LOOP_86_1>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:167</SourceLocation>
+</VITIS_LOOP_134_1>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<BRAM_18K>6</BRAM_18K>
-<FF>379</FF>
-<LUT>1149</LUT>
+<BRAM_18K>30</BRAM_18K>
+<FF>2174</FF>
+<LUT>6424</LUT>
 <URAM>0</URAM>
 <DSP>0</DSP>
 </Resources>
@@ -105,7 +105,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>in</Dir>
-<Bits>16</Bits>
+<Bits>80</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
@@ -141,7 +141,7 @@
 <IOProtocol>axis</IOProtocol>
 <IOConfig>register, both mode</IOConfig>
 <Dir>out</Dir>
-<Bits>16</Bits>
+<Bits>80</Bits>
 <Attribute>data</Attribute>
 <CType>int</CType>
 </RtlPorts>
