@@ -3,7 +3,17 @@
 	"modules": {
 		"conv2d_3x3": {
 			"proto_instances": {
-				"grp_conv2d_3x3_Pipeline_VITIS_LOOP_136_2_fu_169/grp_conv2d_3x3_Pipeline_VITIS_LOOP_136_2_fu_169_activity": {
+				"/AESL_inst_conv2d_3x3_activity": {
+					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
+					"ports": {
+						"AP_CLK": { "actual": "ap_clk"},
+						"AP_DONE": { "actual": "ap_done"},
+						"AP_READY": { "actual": "ap_ready"},
+						"AP_RESET": { "actual": "ap_rst_n"},
+						"AP_START": { "actual": "ap_start"}
+					}
+				},
+				"grp_conv2d_3x3_Pipeline_VITIS_LOOP_132_1_fu_232/grp_conv2d_3x3_Pipeline_VITIS_LOOP_132_1_fu_232_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},
@@ -13,7 +23,17 @@
 						"AP_START": { "actual": "ap_start"}
 					}
 				},
-				"grp_shift_register_fu_288/grp_shift_register_fu_288_activity": {
+				"grp_conv2d_3x3_Pipeline_VITIS_LOOP_163_2_fu_242/grp_conv2d_3x3_Pipeline_VITIS_LOOP_163_2_fu_242_activity": {
+					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
+					"ports": {
+						"AP_CLK": { "actual": "ap_clk"},
+						"AP_DONE": { "actual": "ap_done"},
+						"AP_READY": { "actual": "ap_ready"},
+						"AP_RESET": { "actual": "ap_rst"},
+						"AP_START": { "actual": "ap_start"}
+					}
+				},
+				"grp_shift_register_fu_360/grp_shift_register_fu_360_activity": {
 					"interface": "xilinx.com:interface:internal_hls_dataflow:1.0",
 					"ports": {
 						"AP_CLK": { "actual": "ap_clk"},

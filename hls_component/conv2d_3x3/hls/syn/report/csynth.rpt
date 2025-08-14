@@ -4,7 +4,7 @@
 == Synthesis Summary Report of 'conv2d_3x3'
 ================================================================
 + General Information: 
-    * Date:           Thu Aug  7 20:17:12 2025
+    * Date:           Thu Aug 14 13:06:08 2025
     * Version:        2023.2 (Build 4023990 on Oct 11 2023)
     * Project:        conv2d_3x3
     * Solution:       hls (Vivado IP Flow Target)
@@ -15,38 +15,67 @@
 + Performance & Resource Estimates: 
     
     PS: '+' for module; 'o' for loop; '*' for dataflow
-    +------------------------------------------+------+------+---------+--------+----------+---------+------+----------+----------+----+-----------+------------+-----+
-    |                  Modules                 | Issue|      | Latency | Latency| Iteration|         | Trip |          |          |    |           |            |     |
-    |                  & Loops                 | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined|   BRAM   | DSP|     FF    |     LUT    | URAM|
-    +------------------------------------------+------+------+---------+--------+----------+---------+------+----------+----------+----+-----------+------------+-----+
-    |+ conv2d_3x3                              |     -|  2.22|        -|       -|         -|        -|     -|        no|  30 (13%)|   -|  2174 (2%)|  6424 (17%)|    -|
-    | o VITIS_LOOP_134_1                       |     -|  7.30|        -|       -|         -|        -|     -|        no|         -|   -|          -|           -|    -|
-    |  + conv2d_3x3_Pipeline_VITIS_LOOP_136_2  |     -|  2.22|        -|       -|         -|        -|     -|        no|         -|   -|  1643 (2%)|  3975 (10%)|    -|
-    |   o VITIS_LOOP_136_2                     |     -|  7.30|        -|       -|         7|        1|     -|       yes|         -|   -|          -|           -|    -|
-    |  + shift_register                        |    II|  3.22|        2|  20.000|         -|        2|     -|       yes|         -|   -|   16 (~0%)|   1579 (4%)|    -|
-    |   + sobelConvolve                        |    II|  3.22|        0|   0.000|         -|        1|     -|       yes|         -|   -|          -|    912 (2%)|    -|
-    +------------------------------------------+------+------+---------+--------+----------+---------+------+----------+----------+----+-----------+------------+-----+
+    +------------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+----------+----+-----------+------------+-----+
+    |                  Modules                 | Issue|      | Latency |  Latency  | Iteration|         |  Trip  |          |          |    |           |            |     |
+    |                  & Loops                 | Type | Slack| (cycles)|    (ns)   |  Latency | Interval|  Count | Pipelined|   BRAM   | DSP|     FF    |     LUT    | URAM|
+    +------------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+----------+----+-----------+------------+-----+
+    |+ conv2d_3x3                              |     -|  0.00|        -|          -|         -|        -|       -|        no|  38 (17%)|   -|  3913 (5%)|  8239 (22%)|    -|
+    | + conv2d_3x3_Pipeline_VITIS_LOOP_132_1   |     -|  0.00|   783363|  7.834e+06|         -|   783363|       -|        no|         -|   -|  577 (~0%)|    581 (1%)|    -|
+    |  o VITIS_LOOP_132_1                      |    II|  7.30|   783361|  7.834e+06|         7|        5|  156672|       yes|         -|   -|          -|           -|    -|
+    | o VITIS_LOOP_161_1                       |     -|  7.30|        -|          -|         -|        -|       -|        no|         -|   -|          -|           -|    -|
+    |  + conv2d_3x3_Pipeline_VITIS_LOOP_163_2  |     -|  2.22|        -|          -|         -|        -|       -|        no|         -|   -|  1643 (2%)|  3975 (10%)|    -|
+    |   o VITIS_LOOP_163_2                     |     -|  7.30|        -|          -|         7|        1|       -|       yes|         -|   -|          -|           -|    -|
+    |  + shift_register                        |    II|  3.22|        2|     20.000|         -|        2|       -|       yes|         -|   -|   16 (~0%)|   1579 (4%)|    -|
+    |   + sobelConvolve                        |    II|  3.22|        0|      0.000|         -|        1|       -|       yes|         -|   -|          -|    912 (2%)|    -|
+    +------------------------------------------+------+------+---------+-----------+----------+---------+--------+----------+----------+----+-----------+------------+-----+
 
 
 ================================================================
 == HW Interfaces
 ================================================================
+* M_AXI
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| Interface  | Data Width | Address Width | Latency | Offset | Register | Max Widen | Max Read     | Max Write    | Num Read    | Num Write   | Resource Estimate |
+|            | (SW->HW)   |               |         |        |          | Bitwidth  | Burst Length | Burst Length | Outstanding | Outstanding |                   |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+| m_axi_gmem | 64 -> 64   | 64            | 0       | slave  | 0        | 0         | 16           | 16           | 16          | 16          | BRAM=8            |
++------------+------------+---------------+---------+--------+----------+-----------+--------------+--------------+-------------+-------------+-------------------+
+
+* S_AXILITE Interfaces
++---------------+------------+---------------+--------+----------+
+| Interface     | Data Width | Address Width | Offset | Register |
++---------------+------------+---------------+--------+----------+
+| s_axi_control | 32         | 5             | 16     | 0        |
++---------------+------------+---------------+--------+----------+
+
+* S_AXILITE Registers
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| Interface     | Register | Offset | Width | Access | Description                      | Bit Fields                                                           |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+| s_axi_control | CTRL     | 0x00   | 32    | RW     | Control signals                  | 0=AP_START 1=AP_DONE 2=AP_IDLE 3=AP_READY 7=AUTO_RESTART 9=INTERRUPT |
+| s_axi_control | GIER     | 0x04   | 32    | RW     | Global Interrupt Enable Register | 0=Enable                                                             |
+| s_axi_control | IP_IER   | 0x08   | 32    | RW     | IP Interrupt Enable Register     | 0=CHAN0_INT_EN 1=CHAN1_INT_EN                                        |
+| s_axi_control | IP_ISR   | 0x0c   | 32    | RW     | IP Interrupt Status Register     | 0=CHAN0_INT_ST 1=CHAN1_INT_ST                                        |
+| s_axi_control | arr_1    | 0x10   | 32    | W      | Data signal of arr               |                                                                      |
+| s_axi_control | arr_2    | 0x14   | 32    | W      | Data signal of arr               |                                                                      |
++---------------+----------+--------+-------+--------+----------------------------------+----------------------------------------------------------------------+
+
 * AXIS
 +-----------+-----------+---------------+-------+--------+--------+
 | Interface | Direction | Register Mode | TDATA | TREADY | TVALID |
 +-----------+-----------+---------------+-------+--------+--------+
-| input_r   | in        | both          | 80    | 1      | 1      |
 | output_r  | out       | both          | 80    | 1      | 1      |
 +-----------+-----------+---------------+-------+--------+--------+
 
 * TOP LEVEL CONTROL
-+-----------+--------------+----------+
-| Interface | Type         | Ports    |
-+-----------+--------------+----------+
-| ap_clk    | clock        | ap_clk   |
-| ap_rst_n  | reset        | ap_rst_n |
-| ap_ctrl   | ap_ctrl_none |          |
-+-----------+--------------+----------+
++-----------+------------+-----------+
+| Interface | Type       | Ports     |
++-----------+------------+-----------+
+| ap_clk    | clock      | ap_clk    |
+| ap_rst_n  | reset      | ap_rst_n  |
+| interrupt | interrupt  | interrupt |
+| ap_ctrl   | ap_ctrl_hs |           |
++-----------+------------+-----------+
 
 
 ================================================================
@@ -56,17 +85,19 @@
 +----------+-----------+-------------------------+
 | Argument | Direction | Datatype                |
 +----------+-----------+-------------------------+
-| input    | in        | stream<ap_uint<80>, 0>& |
+| arr      | in        | long int*               |
 | output   | out       | stream<ap_uint<80>, 0>& |
 +----------+-----------+-------------------------+
 
 * SW-to-HW Mapping
-+----------+--------------+-----------+
-| Argument | HW Interface | HW Type   |
-+----------+--------------+-----------+
-| input    | input_r      | interface |
-| output   | output_r     | interface |
-+----------+--------------+-----------+
++----------+---------------+-----------+----------+---------------------------------+
+| Argument | HW Interface  | HW Type   | HW Usage | HW Info                         |
++----------+---------------+-----------+----------+---------------------------------+
+| arr      | m_axi_gmem    | interface |          |                                 |
+| arr      | s_axi_control | register  | offset   | name=arr_1 offset=0x10 range=32 |
+| arr      | s_axi_control | register  | offset   | name=arr_2 offset=0x14 range=32 |
+| output   | output_r      | interface |          |                                 |
++----------+---------------+-----------+----------+---------------------------------+
 
 
 ================================================================
@@ -74,6 +105,22 @@
 ================================================================
  Note: All burst requests might be further partitioned into multiple requests during RTL generation based on max_read_burst_length or max_write_burst_length settings.
 
+* Inferred Burst Summary
++--------------+-----------+--------+-------+------------------+------------------------------------------------------------------+
+| HW Interface | Direction | Length | Width | Loop             | Loop Location                                                    |
++--------------+-----------+--------+-------+------------------+------------------------------------------------------------------+
+| m_axi_gmem   | read      | 783360 | 64    | VITIS_LOOP_132_1 | /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23 |
++--------------+-----------+--------+-------+------------------+------------------------------------------------------------------+
+
+* All M_AXI Variable Accesses
++--------------+----------+------------------------------------------------------------------+-----------+--------------+--------+------------------+------------------------------------------------------------------+------------+-------------------------------------------------------------------------------------------------------+
+| HW Interface | Variable | Access Location                                                  | Direction | Burst Status | Length | Loop             | Loop Location                                                    | Resolution | Problem                                                                                               |
++--------------+----------+------------------------------------------------------------------+-----------+--------------+--------+------------------+------------------------------------------------------------------+------------+-------------------------------------------------------------------------------------------------------+
+| m_axi_gmem   | arr      | /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:137:43 | read      | Widen Fail   |        | VITIS_LOOP_132_1 | /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23 | 214-353    | Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0 |
+| m_axi_gmem   | arr      | /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:137:43 | read      | Inferred     | 783360 | VITIS_LOOP_132_1 | /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23 |            |                                                                                                       |
++--------------+----------+------------------------------------------------------------------+-----------+--------------+--------+------------------+------------------------------------------------------------------+------------+-------------------------------------------------------------------------------------------------------+
+
+    * Resolution URL: docs.xilinx.com/access/sources/dita/topic?Doc_Version=2023.2%20English&url=ug1448-hls-guidance&resourceid=XXX-YYY.html (replace XXX-YYY with column value)
 
 ================================================================
 == Bind Op Report
@@ -82,106 +129,115 @@
 | Name                                    | DSP | Pragma | Variable     | Op  | Impl   | Latency |
 +-----------------------------------------+-----+--------+--------------+-----+--------+---------+
 | + conv2d_3x3                            | 0   |        |              |     |        |         |
-|   row_3_fu_425_p2                       |     |        | row_3        | add | fabric | 0       |
-|  + conv2d_3x3_Pipeline_VITIS_LOOP_136_2 | 0   |        |              |     |        |         |
-|    col_assign_3_fu_1117_p2              |     |        | col_assign_3 | add | fabric | 0       |
-|    col_assign_2_fu_1138_p2              |     |        | col_assign_2 | add | fabric | 0       |
-|    tmp184_fu_3939_p2                    |     |        | tmp184       | sub | fabric | 0       |
-|    sub_ln38_31_fu_3957_p2               |     |        | sub_ln38_31  | sub | fabric | 0       |
-|    sub_ln38_32_fu_3967_p2               |     |        | sub_ln38_32  | sub | fabric | 0       |
-|    tmp187_fu_2015_p2                    |     |        | tmp187       | sub | fabric | 0       |
-|    sub_ln38_33_fu_2033_p2               |     |        | sub_ln38_33  | sub | fabric | 0       |
-|    sub_ln38_34_fu_2043_p2               |     |        | sub_ln38_34  | sub | fabric | 0       |
-|    tmp190_fu_2149_p2                    |     |        | tmp190       | sub | fabric | 0       |
-|    sub_ln38_35_fu_2167_p2               |     |        | sub_ln38_35  | sub | fabric | 0       |
-|    sub_ln38_36_fu_2177_p2               |     |        | sub_ln38_36  | sub | fabric | 0       |
-|    tmp193_fu_2283_p2                    |     |        | tmp193       | sub | fabric | 0       |
-|    sub_ln38_37_fu_2301_p2               |     |        | sub_ln38_37  | sub | fabric | 0       |
-|    sub_ln38_38_fu_2311_p2               |     |        | sub_ln38_38  | sub | fabric | 0       |
-|    tmp196_fu_2417_p2                    |     |        | tmp196       | sub | fabric | 0       |
-|    sub_ln38_39_fu_2435_p2               |     |        | sub_ln38_39  | sub | fabric | 0       |
-|    sub_ln38_40_fu_2445_p2               |     |        | sub_ln38_40  | sub | fabric | 0       |
-|    tmp199_fu_2551_p2                    |     |        | tmp199       | sub | fabric | 0       |
-|    sub_ln38_41_fu_2569_p2               |     |        | sub_ln38_41  | sub | fabric | 0       |
-|    sub_ln38_42_fu_2579_p2               |     |        | sub_ln38_42  | sub | fabric | 0       |
-|    tmp202_fu_2685_p2                    |     |        | tmp202       | sub | fabric | 0       |
-|    sub_ln38_43_fu_2703_p2               |     |        | sub_ln38_43  | sub | fabric | 0       |
-|    sub_ln38_44_fu_2713_p2               |     |        | sub_ln38_44  | sub | fabric | 0       |
-|    tmp205_fu_2819_p2                    |     |        | tmp205       | sub | fabric | 0       |
-|    sub_ln38_45_fu_2837_p2               |     |        | sub_ln38_45  | sub | fabric | 0       |
-|    sub_ln38_46_fu_2847_p2               |     |        | sub_ln38_46  | sub | fabric | 0       |
-|    grp_fu_581_p2                        |     |        | col_5        | add | fabric | 0       |
-|    col_assign_1_fu_1061_p2              |     |        | col_assign_1 | add | fabric | 0       |
-|    col_assign_fu_1082_p2                |     |        | col_assign   | add | fabric | 0       |
-|    tmp_fu_4087_p2                       |     |        | tmp          | sub | fabric | 0       |
-|    sub_ln38_fu_4105_p2                  |     |        | sub_ln38     | sub | fabric | 0       |
-|    sub_ln38_16_fu_4115_p2               |     |        | sub_ln38_16  | sub | fabric | 0       |
-|    tmp163_fu_3001_p2                    |     |        | tmp163       | sub | fabric | 0       |
-|    sub_ln38_17_fu_3019_p2               |     |        | sub_ln38_17  | sub | fabric | 0       |
-|    sub_ln38_18_fu_3029_p2               |     |        | sub_ln38_18  | sub | fabric | 0       |
-|    tmp166_fu_3135_p2                    |     |        | tmp166       | sub | fabric | 0       |
-|    sub_ln38_19_fu_3153_p2               |     |        | sub_ln38_19  | sub | fabric | 0       |
-|    sub_ln38_20_fu_3163_p2               |     |        | sub_ln38_20  | sub | fabric | 0       |
-|    tmp169_fu_3269_p2                    |     |        | tmp169       | sub | fabric | 0       |
-|    sub_ln38_21_fu_3287_p2               |     |        | sub_ln38_21  | sub | fabric | 0       |
-|    sub_ln38_22_fu_3297_p2               |     |        | sub_ln38_22  | sub | fabric | 0       |
-|    tmp172_fu_3403_p2                    |     |        | tmp172       | sub | fabric | 0       |
-|    sub_ln38_23_fu_3421_p2               |     |        | sub_ln38_23  | sub | fabric | 0       |
-|    sub_ln38_24_fu_3431_p2               |     |        | sub_ln38_24  | sub | fabric | 0       |
-|    tmp175_fu_3537_p2                    |     |        | tmp175       | sub | fabric | 0       |
-|    sub_ln38_25_fu_3555_p2               |     |        | sub_ln38_25  | sub | fabric | 0       |
-|    sub_ln38_26_fu_3565_p2               |     |        | sub_ln38_26  | sub | fabric | 0       |
-|    tmp178_fu_3671_p2                    |     |        | tmp178       | sub | fabric | 0       |
-|    sub_ln38_27_fu_3689_p2               |     |        | sub_ln38_27  | sub | fabric | 0       |
-|    sub_ln38_28_fu_3699_p2               |     |        | sub_ln38_28  | sub | fabric | 0       |
-|    tmp181_fu_3805_p2                    |     |        | tmp181       | sub | fabric | 0       |
-|    sub_ln38_29_fu_3823_p2               |     |        | sub_ln38_29  | sub | fabric | 0       |
-|    sub_ln38_30_fu_3833_p2               |     |        | sub_ln38_30  | sub | fabric | 0       |
-|    grp_fu_581_p2                        |     |        | col_4        | add | fabric | 0       |
+|   row_3_fu_517_p2                       |     |        | row_3        | add | fabric | 0       |
+|  + conv2d_3x3_Pipeline_VITIS_LOOP_132_1 | 0   |        |              |     |        |         |
+|    add_ln145_fu_180_p2                  |     |        | add_ln145    | add | fabric | 0       |
+|    add_ln145_1_fu_226_p2                |     |        | add_ln145_1  | add | fabric | 0       |
+|    add_ln145_2_fu_265_p2                |     |        | add_ln145_2  | add | fabric | 0       |
+|    add_ln145_3_fu_300_p2                |     |        | add_ln145_3  | add | fabric | 0       |
+|    add_ln132_fu_153_p2                  |     |        | add_ln132    | add | fabric | 0       |
+|  + conv2d_3x3_Pipeline_VITIS_LOOP_163_2 | 0   |        |              |     |        |         |
+|    col_assign_3_fu_1119_p2              |     |        | col_assign_3 | add | fabric | 0       |
+|    col_assign_2_fu_1140_p2              |     |        | col_assign_2 | add | fabric | 0       |
+|    tmp184_fu_3941_p2                    |     |        | tmp184       | sub | fabric | 0       |
+|    sub_ln39_31_fu_3959_p2               |     |        | sub_ln39_31  | sub | fabric | 0       |
+|    sub_ln39_32_fu_3969_p2               |     |        | sub_ln39_32  | sub | fabric | 0       |
+|    tmp187_fu_2017_p2                    |     |        | tmp187       | sub | fabric | 0       |
+|    sub_ln39_33_fu_2035_p2               |     |        | sub_ln39_33  | sub | fabric | 0       |
+|    sub_ln39_34_fu_2045_p2               |     |        | sub_ln39_34  | sub | fabric | 0       |
+|    tmp190_fu_2151_p2                    |     |        | tmp190       | sub | fabric | 0       |
+|    sub_ln39_35_fu_2169_p2               |     |        | sub_ln39_35  | sub | fabric | 0       |
+|    sub_ln39_36_fu_2179_p2               |     |        | sub_ln39_36  | sub | fabric | 0       |
+|    tmp193_fu_2285_p2                    |     |        | tmp193       | sub | fabric | 0       |
+|    sub_ln39_37_fu_2303_p2               |     |        | sub_ln39_37  | sub | fabric | 0       |
+|    sub_ln39_38_fu_2313_p2               |     |        | sub_ln39_38  | sub | fabric | 0       |
+|    tmp196_fu_2419_p2                    |     |        | tmp196       | sub | fabric | 0       |
+|    sub_ln39_39_fu_2437_p2               |     |        | sub_ln39_39  | sub | fabric | 0       |
+|    sub_ln39_40_fu_2447_p2               |     |        | sub_ln39_40  | sub | fabric | 0       |
+|    tmp199_fu_2553_p2                    |     |        | tmp199       | sub | fabric | 0       |
+|    sub_ln39_41_fu_2571_p2               |     |        | sub_ln39_41  | sub | fabric | 0       |
+|    sub_ln39_42_fu_2581_p2               |     |        | sub_ln39_42  | sub | fabric | 0       |
+|    tmp202_fu_2687_p2                    |     |        | tmp202       | sub | fabric | 0       |
+|    sub_ln39_43_fu_2705_p2               |     |        | sub_ln39_43  | sub | fabric | 0       |
+|    sub_ln39_44_fu_2715_p2               |     |        | sub_ln39_44  | sub | fabric | 0       |
+|    tmp205_fu_2821_p2                    |     |        | tmp205       | sub | fabric | 0       |
+|    sub_ln39_45_fu_2839_p2               |     |        | sub_ln39_45  | sub | fabric | 0       |
+|    sub_ln39_46_fu_2849_p2               |     |        | sub_ln39_46  | sub | fabric | 0       |
+|    grp_fu_583_p2                        |     |        | col_5        | add | fabric | 0       |
+|    col_assign_1_fu_1063_p2              |     |        | col_assign_1 | add | fabric | 0       |
+|    col_assign_fu_1084_p2                |     |        | col_assign   | add | fabric | 0       |
+|    tmp_fu_4089_p2                       |     |        | tmp          | sub | fabric | 0       |
+|    sub_ln39_fu_4107_p2                  |     |        | sub_ln39     | sub | fabric | 0       |
+|    sub_ln39_16_fu_4117_p2               |     |        | sub_ln39_16  | sub | fabric | 0       |
+|    tmp163_fu_3003_p2                    |     |        | tmp163       | sub | fabric | 0       |
+|    sub_ln39_17_fu_3021_p2               |     |        | sub_ln39_17  | sub | fabric | 0       |
+|    sub_ln39_18_fu_3031_p2               |     |        | sub_ln39_18  | sub | fabric | 0       |
+|    tmp166_fu_3137_p2                    |     |        | tmp166       | sub | fabric | 0       |
+|    sub_ln39_19_fu_3155_p2               |     |        | sub_ln39_19  | sub | fabric | 0       |
+|    sub_ln39_20_fu_3165_p2               |     |        | sub_ln39_20  | sub | fabric | 0       |
+|    tmp169_fu_3271_p2                    |     |        | tmp169       | sub | fabric | 0       |
+|    sub_ln39_21_fu_3289_p2               |     |        | sub_ln39_21  | sub | fabric | 0       |
+|    sub_ln39_22_fu_3299_p2               |     |        | sub_ln39_22  | sub | fabric | 0       |
+|    tmp172_fu_3405_p2                    |     |        | tmp172       | sub | fabric | 0       |
+|    sub_ln39_23_fu_3423_p2               |     |        | sub_ln39_23  | sub | fabric | 0       |
+|    sub_ln39_24_fu_3433_p2               |     |        | sub_ln39_24  | sub | fabric | 0       |
+|    tmp175_fu_3539_p2                    |     |        | tmp175       | sub | fabric | 0       |
+|    sub_ln39_25_fu_3557_p2               |     |        | sub_ln39_25  | sub | fabric | 0       |
+|    sub_ln39_26_fu_3567_p2               |     |        | sub_ln39_26  | sub | fabric | 0       |
+|    tmp178_fu_3673_p2                    |     |        | tmp178       | sub | fabric | 0       |
+|    sub_ln39_27_fu_3691_p2               |     |        | sub_ln39_27  | sub | fabric | 0       |
+|    sub_ln39_28_fu_3701_p2               |     |        | sub_ln39_28  | sub | fabric | 0       |
+|    tmp181_fu_3807_p2                    |     |        | tmp181       | sub | fabric | 0       |
+|    sub_ln39_29_fu_3825_p2               |     |        | sub_ln39_29  | sub | fabric | 0       |
+|    sub_ln39_30_fu_3835_p2               |     |        | sub_ln39_30  | sub | fabric | 0       |
+|    grp_fu_583_p2                        |     |        | col_4        | add | fabric | 0       |
 |  + shift_register                       | 0   |        |              |     |        |         |
 |   + sobelConvolve                       | 0   |        |              |     |        |         |
 |     tmp_fu_160_p2                       |     |        | tmp          | sub | fabric | 0       |
-|     sub_ln38_fu_178_p2                  |     |        | sub_ln38     | sub | fabric | 0       |
-|     sub_ln38_1_fu_188_p2                |     |        | sub_ln38_1   | sub | fabric | 0       |
+|     sub_ln39_fu_178_p2                  |     |        | sub_ln39     | sub | fabric | 0       |
+|     sub_ln39_1_fu_188_p2                |     |        | sub_ln39_1   | sub | fabric | 0       |
 |     tmp83_fu_318_p2                     |     |        | tmp83        | sub | fabric | 0       |
-|     sub_ln38_2_fu_336_p2                |     |        | sub_ln38_2   | sub | fabric | 0       |
-|     sub_ln38_3_fu_346_p2                |     |        | sub_ln38_3   | sub | fabric | 0       |
+|     sub_ln39_2_fu_336_p2                |     |        | sub_ln39_2   | sub | fabric | 0       |
+|     sub_ln39_3_fu_346_p2                |     |        | sub_ln39_3   | sub | fabric | 0       |
 |     tmp86_fu_476_p2                     |     |        | tmp86        | sub | fabric | 0       |
-|     sub_ln38_4_fu_494_p2                |     |        | sub_ln38_4   | sub | fabric | 0       |
-|     sub_ln38_5_fu_504_p2                |     |        | sub_ln38_5   | sub | fabric | 0       |
+|     sub_ln39_4_fu_494_p2                |     |        | sub_ln39_4   | sub | fabric | 0       |
+|     sub_ln39_5_fu_504_p2                |     |        | sub_ln39_5   | sub | fabric | 0       |
 |     tmp89_fu_634_p2                     |     |        | tmp89        | sub | fabric | 0       |
-|     sub_ln38_6_fu_652_p2                |     |        | sub_ln38_6   | sub | fabric | 0       |
-|     sub_ln38_7_fu_662_p2                |     |        | sub_ln38_7   | sub | fabric | 0       |
+|     sub_ln39_6_fu_652_p2                |     |        | sub_ln39_6   | sub | fabric | 0       |
+|     sub_ln39_7_fu_662_p2                |     |        | sub_ln39_7   | sub | fabric | 0       |
 |     tmp92_fu_792_p2                     |     |        | tmp92        | sub | fabric | 0       |
-|     sub_ln38_8_fu_810_p2                |     |        | sub_ln38_8   | sub | fabric | 0       |
-|     sub_ln38_9_fu_820_p2                |     |        | sub_ln38_9   | sub | fabric | 0       |
+|     sub_ln39_8_fu_810_p2                |     |        | sub_ln39_8   | sub | fabric | 0       |
+|     sub_ln39_9_fu_820_p2                |     |        | sub_ln39_9   | sub | fabric | 0       |
 |     tmp95_fu_950_p2                     |     |        | tmp95        | sub | fabric | 0       |
-|     sub_ln38_10_fu_968_p2               |     |        | sub_ln38_10  | sub | fabric | 0       |
-|     sub_ln38_11_fu_978_p2               |     |        | sub_ln38_11  | sub | fabric | 0       |
+|     sub_ln39_10_fu_968_p2               |     |        | sub_ln39_10  | sub | fabric | 0       |
+|     sub_ln39_11_fu_978_p2               |     |        | sub_ln39_11  | sub | fabric | 0       |
 |     tmp98_fu_1108_p2                    |     |        | tmp98        | sub | fabric | 0       |
-|     sub_ln38_12_fu_1126_p2              |     |        | sub_ln38_12  | sub | fabric | 0       |
-|     sub_ln38_13_fu_1136_p2              |     |        | sub_ln38_13  | sub | fabric | 0       |
+|     sub_ln39_12_fu_1126_p2              |     |        | sub_ln39_12  | sub | fabric | 0       |
+|     sub_ln39_13_fu_1136_p2              |     |        | sub_ln39_13  | sub | fabric | 0       |
 |     tmp101_fu_1266_p2                   |     |        | tmp101       | sub | fabric | 0       |
-|     sub_ln38_14_fu_1284_p2              |     |        | sub_ln38_14  | sub | fabric | 0       |
-|     sub_ln38_15_fu_1294_p2              |     |        | sub_ln38_15  | sub | fabric | 0       |
+|     sub_ln39_14_fu_1284_p2              |     |        | sub_ln39_14  | sub | fabric | 0       |
+|     sub_ln39_15_fu_1294_p2              |     |        | sub_ln39_15  | sub | fabric | 0       |
 +-----------------------------------------+-----+--------+--------------+-----+--------+---------+
 
 
 ================================================================
 == Storage Report
 ================================================================
-+-----------------+---------+------+------+------+--------+-------------+------+---------+------------------+
-| Name            | Usage   | Type | BRAM | URAM | Pragma | Variable    | Impl | Latency | Bitwidth, Depth, |
-|                 |         |      |      |      |        |             |      |         | Banks            |
-+-----------------+---------+------+------+------+--------+-------------+------+---------+------------------+
-| + conv2d_3x3    |         |      | 30   | 0    |        |             |      |         |                  |
-|   linebuf_0_0_U | ram_s2p |      | 5    |      |        | linebuf_0_0 | auto | 1       | 80, 153, 1       |
-|   linebuf_1_0_U | ram_s2p |      | 5    |      |        | linebuf_1_0 | auto | 1       | 80, 153, 1       |
-|   linebuf_2_0_U | ram_s2p |      | 5    |      |        | linebuf_2_0 | auto | 1       | 80, 153, 1       |
-|   linebuf_1_1_U | ram_s2p |      | 5    |      |        | linebuf_1_1 | auto | 1       | 80, 153, 1       |
-|   linebuf_2_1_U | ram_s2p |      | 5    |      |        | linebuf_2_1 | auto | 1       | 80, 153, 1       |
-|   linebuf_0_1_U | ram_s2p |      | 5    |      |        | linebuf_0_1 | auto | 1       | 80, 153, 1       |
-+-----------------+---------+------+------+------+--------+-------------+------+---------+------------------+
++-------------------+------------+-----------+------+------+--------+-------------+------+---------+------------------+
+| Name              | Usage      | Type      | BRAM | URAM | Pragma | Variable    | Impl | Latency | Bitwidth, Depth, |
+|                   |            |           |      |      |        |             |      |         | Banks            |
++-------------------+------------+-----------+------+------+--------+-------------+------+---------+------------------+
+| + conv2d_3x3      |            |           | 38   | 0    |        |             |      |         |                  |
+|   control_s_axi_U | interface  | s_axilite |      |      |        |             |      |         |                  |
+|   gmem_m_axi_U    | interface  | m_axi     | 8    |      |        |             |      |         |                  |
+|   input_fifo_U    | fifo array |           |      |      |        | input       | srl  | 0       | 80, 2, 1         |
+|   linebuf_0_0_U   | ram_s2p    |           | 5    |      |        | linebuf_0_0 | auto | 1       | 80, 153, 1       |
+|   linebuf_1_0_U   | ram_s2p    |           | 5    |      |        | linebuf_1_0 | auto | 1       | 80, 153, 1       |
+|   linebuf_2_0_U   | ram_s2p    |           | 5    |      |        | linebuf_2_0 | auto | 1       | 80, 153, 1       |
+|   linebuf_1_1_U   | ram_s2p    |           | 5    |      |        | linebuf_1_1 | auto | 1       | 80, 153, 1       |
+|   linebuf_2_1_U   | ram_s2p    |           | 5    |      |        | linebuf_2_1 | auto | 1       | 80, 153, 1       |
+|   linebuf_0_1_U   | ram_s2p    |           | 5    |      |        | linebuf_0_1 | auto | 1       | 80, 153, 1       |
++-------------------+------------+-----------+------+------+--------+-------------+------+---------+------------------+
 
 
 ================================================================
@@ -260,27 +316,30 @@
 | inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1028 in insert_bottom                                           |
 | inline          |                                       | ../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1040 in insert_top                                              |
 | array_partition | variable=kernel complete dim=0        | ../conv2d_hls.cpp:26 in sobelconvolve, kernel                                                                                      |
-| unroll          |                                       | ../conv2d_hls.cpp:34 in sobelconvolve                                                                                              |
-| unroll          |                                       | ../conv2d_hls.cpp:37 in sobelconvolve                                                                                              |
-| array_partition | variable=window complete dim=0        | ../conv2d_hls.cpp:52 in shift_register, window                                                                                     |
-| array_partition | variable=window_adjust complete dim=0 | ../conv2d_hls.cpp:53 in shift_register, window_adjust                                                                              |
-| unroll          |                                       | ../conv2d_hls.cpp:87 in shift_register                                                                                             |
-| unroll          |                                       | ../conv2d_hls.cpp:93 in shift_register                                                                                             |
-| unroll          |                                       | ../conv2d_hls.cpp:96 in shift_register                                                                                             |
-| unroll          |                                       | ../conv2d_hls.cpp:110 in shift_register                                                                                            |
-| unroll          |                                       | ../conv2d_hls.cpp:113 in shift_register                                                                                            |
-| interface       | axis port=input                       | ../conv2d_hls.cpp:128 in conv2d_3x3, input                                                                                         |
-| interface       | axis port=output                      | ../conv2d_hls.cpp:129 in conv2d_3x3, output                                                                                        |
-| interface       | ap_ctrl_none port=return              | ../conv2d_hls.cpp:130 in conv2d_3x3, return                                                                                        |
-| pipeline        |                                       | ../conv2d_hls.cpp:135 in conv2d_3x3                                                                                                |
-| pipeline        | II = 1                                | ../conv2d_hls.cpp:137 in conv2d_3x3                                                                                                |
+| unroll          |                                       | ../conv2d_hls.cpp:35 in sobelconvolve                                                                                              |
+| unroll          |                                       | ../conv2d_hls.cpp:38 in sobelconvolve                                                                                              |
+| array_partition | variable=window complete dim=0        | ../conv2d_hls.cpp:53 in shift_register, window                                                                                     |
+| array_partition | variable=window_adjust complete dim=0 | ../conv2d_hls.cpp:54 in shift_register, window_adjust                                                                              |
+| unroll          |                                       | ../conv2d_hls.cpp:88 in shift_register                                                                                             |
+| unroll          |                                       | ../conv2d_hls.cpp:94 in shift_register                                                                                             |
+| unroll          |                                       | ../conv2d_hls.cpp:97 in shift_register                                                                                             |
+| unroll          |                                       | ../conv2d_hls.cpp:111 in shift_register                                                                                            |
+| unroll          |                                       | ../conv2d_hls.cpp:114 in shift_register                                                                                            |
+| interface       | axis port=stream                      | ../conv2d_hls.cpp:128 in data_mm2s, stream                                                                                         |
+| pipeline        |                                       | ../conv2d_hls.cpp:134 in data_mm2s                                                                                                 |
+| interface       | m_axi port = arr depth = 783360       | ../conv2d_hls.cpp:152 in conv2d_3x3                                                                                                |
+| interface       | s_axilite port = arr                  | ../conv2d_hls.cpp:153 in conv2d_3x3                                                                                                |
+| interface       | s_axilite port = return               | ../conv2d_hls.cpp:154 in conv2d_3x3                                                                                                |
+| interface       | axis port=output                      | ../conv2d_hls.cpp:155 in conv2d_3x3, output                                                                                        |
+| pipeline        |                                       | ../conv2d_hls.cpp:162 in conv2d_3x3                                                                                                |
+| pipeline        | II = 1                                | ../conv2d_hls.cpp:164 in conv2d_3x3                                                                                                |
 +-----------------+---------------------------------------+------------------------------------------------------------------------------------------------------------------------------------+
 
 * Inferred Pragmas
 +--------------------------------+-----------------+---------------------------------------+--------------------------------+
 | Source Pragma                  | Inferred Pragma | Options                               | Location                       |
 +--------------------------------+-----------------+---------------------------------------+--------------------------------+
-| pipeline ../conv2d_hls.cpp:137 | array_partition | dim=1 type=complete  variable=linebuf | variable linebuf in conv2d_3x3 |
+| pipeline ../conv2d_hls.cpp:164 | array_partition | dim=1 type=complete  variable=linebuf | variable linebuf in conv2d_3x3 |
 +--------------------------------+-----------------+---------------------------------------+--------------------------------+
 
 

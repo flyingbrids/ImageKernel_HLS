@@ -1,13 +1,15 @@
-#include <iostream>
-#include <queue>
 #include "conv2d_hls.h"
-#include <cstdint>
-#include <hls_stream.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 
 #define MAX_CHAR 256
 
-int main() {
-    hls::stream<axis_t> input_stream, output_stream;
+int lineCnt = 0;
+
+int main() 
+{
+    hls::stream<axis_t> output_stream;
     FILE *test_image;
     FILE *output_image;
     FILE *output_image1;
@@ -36,48 +38,59 @@ int main() {
     // 3. Read line by line until end of file
     // fgets reads up to (MAX_CHAR - 1) characters or until a newline or EOF.
     // It includes the newline character if found.
-    axis_t data_input;
-    int lineCnt = 0;
+    ap_uint<320> buffer;
+    long input_arr[N];
+    int n = 0;    
     while (lineCnt < IMG_ROWS * IMG_COLS) 
-    {           
-            data_input = 0;
-            for (int k = 0; k < PIX_CNT; k++) 
+    {    
+            for (int i = 0; i < 4; i++)
             {
-                int pixeldata = 0;
-                uint8_t pixelNibble;
-                fgets(line_buffer, MAX_CHAR, test_image);
-                for (int index =0; index < 4; index++) 
+                for (int k = 0; k < PIX_CNT; k++) 
                 {
-                    if (line_buffer[index] < 'A')
+                    int pixeldata = 0;
+                    uint8_t pixelNibble;
+                    if (lineCnt >= IMG_ROWS * IMG_COLS)
+                       break;
+                    if (fgets(line_buffer, MAX_CHAR, test_image))
                     {
-                        pixelNibble = line_buffer[index] - '0';
-                    } // ASCII value to data      
-                    else
-                        pixelNibble = line_buffer[index] - 'A' + 10;
-                    switch (index)
-                    {
-                        case 0: pixeldata = pixeldata + (pixelNibble << 4); break;
-                        case 1: pixeldata = pixeldata +  pixelNibble; break;
-                        case 2: pixeldata = pixeldata + (pixelNibble << 12);  break;
-                        case 3: pixeldata = pixeldata + (pixelNibble << 8);  break;
-                        default: break;
-                    }                 
+                        for (int index =0; index < 4; index++) 
+                        {
+                            if (line_buffer[index] < 'A')
+                            {
+                                pixelNibble = line_buffer[index] - '0';
+                            } // ASCII value to data      
+                            else
+                                pixelNibble = line_buffer[index] - 'A' + 10;
+                            switch (index)
+                            {
+                                case 0: pixeldata = pixeldata + (pixelNibble << 4); break;
+                                case 1: pixeldata = pixeldata +  pixelNibble; break;
+                                case 2: pixeldata = pixeldata + (pixelNibble << 12);  break;
+                                case 3: pixeldata = pixeldata + (pixelNibble << 8);  break;
+                                default: break;
+                            }                 
+                        }
+                        // write output image 
+                        fprintf(output_image,"%d\r\n",pixeldata);
+                        buffer.range(i*80+(PIX_CNT-1-k)*10+9 , i*80+(PIX_CNT-1-k)*10) = pixeldata; 
+                        lineCnt ++;
+                    }
                 }
-                // write output image 
-                fprintf(output_image,"%d\r\n",pixeldata);
-                data_input = (data_input << 10) + pixeldata; 
-                lineCnt ++;
             }
-            input_stream << data_input;        
-    }
 
+            for (int k = 0; k < 5; k++) 
+            {
+                input_arr[n+k] = buffer.range(k*64 + 63, k*64);
+            }
+            n = n +5;                   
+    
+    }
     // 4. Close the file
     fclose(test_image);
     fclose(output_image);
 
     // Run hardware convolution
-    conv2d_3x3 (input_stream, output_stream);        
-
+    conv2d_3x3 (input_arr, output_stream); 
     int  pixels_received =0;
     // get the output file 
     while (!output_stream.empty()) 
@@ -95,4 +108,5 @@ int main() {
         return 0;
     else
         return -1;
+
 }

@@ -8,7 +8,7 @@
 <unit>ns</unit>
 <ProductFamily>zynquplus</ProductFamily>
 <Part>xczu1cg-sbva484-1-e</Part>
-<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</TopModelName>
+<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>2.70</ClockUncertainty>
 <TargetInitiationInterval>4294967295</TargetInitiationInterval>
@@ -33,7 +33,7 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_136_2>
+<VITIS_LOOP_163_2>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -42,19 +42,19 @@
 <PipelineDepth>7</PipelineDepth>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_136_2>
+</VITIS_LOOP_163_2>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132</SourceLocation>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:159</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_136_2>
-<Name>VITIS_LOOP_136_2</Name>
+<VITIS_LOOP_163_2>
+<Name>VITIS_LOOP_163_2</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:137</SourceLocation>
-</VITIS_LOOP_136_2>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164</SourceLocation>
+</VITIS_LOOP_163_2>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
@@ -79,7 +79,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -90,7 +90,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -101,7 +101,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -112,7 +112,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -123,7 +123,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -134,7 +134,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_136_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -144,33 +144,33 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_r_TVALID</name>
+<name>input_r_dout</name>
 <Object>input_r</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>80</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>input_r_empty_n</name>
+<Object>input_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_r_TDATA</name>
+<name>input_r_read</name>
 <Object>input_r</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>80</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>input_r_TREADY</name>
-<Object>input_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
+<IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>

@@ -24,7 +24,8 @@ int sum[PIX_CNT];
 axis_t sobelConvolve () 
 {
    #pragma HLS ARRAY_PARTITION variable=kernel complete dim=0
-   axis_t data_out = 0;
+   axis_t data_out;
+   data_out = 0;
    // calculate the convolution
     for (int k = 0; k < PIX_CNT; k++) 
     {
@@ -42,7 +43,7 @@ axis_t sobelConvolve ()
             sum[k] = 0;
         else if (sum[k] > 1023) 
             sum[k] = 1023;
-        data_out = (data_out << 10) + sum[k];
+        data_out = (data_out<< 10) + sum[k];
     }
     return data_out;   
 } 
@@ -122,12 +123,38 @@ axis_t shift_register (axis_t d, int col, int row)
     return sobelConvolve();
 }
 
+void data_mm2s(long* arr, hls::stream<axis_t> &stream)
+{
+    #pragma HLS interface axis port=stream
+    axis_t data_out;
+    ap_uint<320> buffer;
+    static int output_cnt = 0;
+    for (int i = 0; i < N; i= i+5)     
+    {
+        #pragma HLS PIPELINE
+        for (int j=0; j < 5; j++) 
+        {
+            buffer.range(j*64+63, j*64) = arr[i+j];
+        }    
+        for (int k=0; k < 4; k++) 
+        {
+            data_out = (axis_t) buffer.range(k*80+79,k*80);
+            if (output_cnt < IMG_COLS * IMG_ROWS/PIX_CNT) 
+            {
+                stream.write(data_out); 
+                output_cnt ++;
+            }
+        }         
+    }
+}
 
-
-void conv2d_3x3(hls::stream<axis_t> &input, hls::stream<axis_t> &output) {
-    #pragma HLS INTERFACE axis port=input
-    #pragma HLS INTERFACE axis port=output
-    #pragma HLS INTERFACE ap_ctrl_none port=return  
+void conv2d_3x3(long* arr, hls::stream<axis_t> &output) {
+    #pragma HLS interface m_axi port = arr depth = N
+    #pragma HLS interface s_axilite port = arr
+    #pragma HLS interface s_axilite port = return 
+    #pragma HLS interface axis port=output 
+    hls::stream<axis_t> input;
+    data_mm2s(arr,input);
     int row = 0; 
     int col = 0;  
     axis_t data_out;
