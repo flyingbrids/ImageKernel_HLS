@@ -6,45 +6,49 @@
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 | Phase         | Step                        | Instructions | Description                                                                            |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
-| Compile/Link  |                             | 3,569        | After all functions are compiled and linked into a single design                       |
+| Compile/Link  |                             | 3,741        | After all functions are compiled and linked into a single design                       |
 |               |                             |              |                                                                                        |
 | Unroll/Inline |                             |              | After user unroll and inline pragmas are applied                                       |
-|               | (1) unroll                  | 7,130        | user unroll pragmas are applied                                                        |
-|               | (2) simplification          | 2,743        | simplification of applied user unroll pragmas                                          |
-|               | (3) inline                  | 2,712        | user inline pragmas are applied                                                        |
-|               | (4) simplification          | 2,635        | simplification of applied user inline pragmas                                          |
+|               | (1) unroll                  | 7,176        | user unroll pragmas are applied                                                        |
+|               | (2) simplification          | 2,781        | simplification of applied user unroll pragmas                                          |
+|               | (3) inline                  | 2,750        | user inline pragmas are applied                                                        |
+|               | (4) simplification          | 2,672        | simplification of applied user inline pragmas                                          |
 |               |                             |              |                                                                                        |
 | Array/Struct  |                             |              | After user array partition and struct aggregate/disaggregate pragmas are applied       |
-|               | (1) array partition         | 2,661        | user array partition pragmas are applied                                               |
-|               | (2) simplification          | 2,079        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
-|               | (3) aggregate/disaggregate  | 2,079        | user struct aggregate/disaggregate pragmas are applied                                 |
-|               | (4) array reshape           | 2,079        | apply array reshape pragmas                                                            |
-|               | (5) access patterns         | 2,077        | array access pattern optmizations                                                      |
+|               | (1) array partition         | 2,699        | user array partition pragmas are applied                                               |
+|               | (2) simplification          | 2,117        | simplification of applied user array partition & struct aggregate/disaggregate pragmas |
+|               | (3) aggregate/disaggregate  | 2,117        | user struct aggregate/disaggregate pragmas are applied                                 |
+|               | (4) array reshape           | 2,117        | apply array reshape pragmas                                                            |
+|               | (5) access patterns         | 2,116        | array access pattern optmizations                                                      |
 |               |                             |              |                                                                                        |
 | Performance   |                             |              | After transformations are applied to meet performance pragma targets                   |
-|               | (1) loop simplification     | 2,071        | loop and instruction simplification                                                    |
-|               | (2) parallelization         | 1,975        | loops are unrolled or pipelined to meet performance targets                            |
-|               | (3) array partition         | 2,158        | arrays are partitioned to meet performance targets                                     |
-|               | (4) simplification          | 1,975        | simplification of design after performance transformations                             |
+|               | (1) loop simplification     | 2,106        | loop and instruction simplification                                                    |
+|               | (2) parallelization         | 2,039        | loops are unrolled or pipelined to meet performance targets                            |
+|               | (3) array partition         | 2,222        | arrays are partitioned to meet performance targets                                     |
+|               | (4) simplification          | 2,045        | simplification of design after performance transformations                             |
 |               |                             |              |                                                                                        |
 | HW Transforms |                             |              | After hardware transfomations                                                          |
-|               | (1) lowering                | 1,972        | initial conversion to HW specific instructions                                         |
-|               | (2) optimizations           | 1,991        | high level synthesis optimizations                                                     |
+|               | (1) lowering                | 2,056        | initial conversion to HW specific instructions                                         |
+|               | (2) optimizations           | 2,088        | high level synthesis optimizations                                                     |
 +---------------+-----------------------------+--------------+----------------------------------------------------------------------------------------+
 
 * Instructions per Function for each Compilation Phase
-+-----------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
-| Function              | Location              | Compile/Link    | Unroll/Inline   | Array/Struct    | Performance | HW Transforms |
-+-----------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
-| + conv2d_3x3          | conv2d_hls.cpp:151    | 3,569           | 2,635           | 2,077           | 1,975       | 1,991         |
-|    data_mm2s          | conv2d_hls.cpp:126    |  165            |                 |                 |             |               |
-|  + shift_register     | conv2d_hls.cpp:51     | 3,261 (3 calls) | 2,523 (3 calls) | 1,962 (3 calls) |  578        |  578          |
-|   + shift_up          | xf_video_mem.hpp:1014 |  720 (3 calls)  |                 |                 |             |               |
-|      shift_pixels_up  | xf_video_mem.hpp:854  |  714 (3 calls)  |                 |                 |             |               |
-|     insert_bottom_row | xf_video_mem.hpp:896  |   39 (3 calls)  |                 |                 |             |               |
-|     getval            | xf_video_mem.hpp:979  |  240 (15 calls) |                 |                 |             |               |
-|     sobelConvolve     | conv2d_hls.cpp:24     | 1,182 (3 calls) | 1,275 (3 calls) | 1,125 (3 calls) |  375        |  375          |
-+-----------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
++------------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
+| Function               | Location              | Compile/Link    | Unroll/Inline   | Array/Struct    | Performance | HW Transforms |
++------------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
+| + conv2d_3x3           | conv2d_hls.cpp:218    | 3,741           | 2,672           | 2,116           | 2,045       | 2,088         |
+|    data_mm2s           | conv2d_hls.cpp:127    |  165            |                 |                 |             |               |
+|  + image_filter        | conv2d_hls.cpp:175    | 3,391           |                 |                 |             |               |
+|   + shift_register     | conv2d_hls.cpp:52     | 3,261 (3 calls) |                 |                 |             |               |
+|    + shift_up          | xf_video_mem.hpp:1014 |  720 (3 calls)  |                 |                 |             |               |
+|       shift_pixels_up  | xf_video_mem.hpp:854  |  714 (3 calls)  |                 |                 |             |               |
+|      insert_bottom_row | xf_video_mem.hpp:896  |   39 (3 calls)  |                 |                 |             |               |
+|      getval            | xf_video_mem.hpp:979  |  240 (15 calls) |                 |                 |             |               |
+|      sobelConvolve     | conv2d_hls.cpp:25     | 1,182 (3 calls) |                 |                 |             |               |
+|    data_s2mm           | conv2d_hls.cpp:152    |  162            |                 |                 |             |               |
+|  + shift_register      | conv2d_hls.cpp:52     |                 | 2,523 (3 calls) | 1,962 (3 calls) |  578        |  578          |
+|     sobelConvolve      | conv2d_hls.cpp:25     |                 | 1,275 (3 calls) | 1,125 (3 calls) |  375        |  375          |
++------------------------+-----------------------+-----------------+-----------------+-----------------+-------------+---------------+
 
 * Design Size Message Settings
 +---------------------------------------------+--------+------------------------------------------------------------------+

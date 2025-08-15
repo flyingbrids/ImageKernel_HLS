@@ -8,4 +8,4 @@
 
 typedef ap_uint<10> pixel_t;
 typedef ap_uint<80> axis_t;
-void conv2d_3x3(long* arr, hls::stream<axis_t> &output);
+void conv2d_3x3(long* arr1, long* arr2);

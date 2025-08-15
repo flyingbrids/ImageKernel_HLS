@@ -9,7 +9,7 @@ int lineCnt = 0;
 
 int main() 
 {
-    hls::stream<axis_t> output_stream;
+    //hls::stream<axis_t> output_stream;
     FILE *test_image;
     FILE *output_image;
     FILE *output_image1;
@@ -90,23 +90,20 @@ int main()
     fclose(output_image);
 
     // Run hardware convolution
-    conv2d_3x3 (input_arr, output_stream); 
-    int  pixels_received =0;
-    // get the output file 
-    while (!output_stream.empty()) 
+    conv2d_3x3 (input_arr, input_arr);    
+    for (int i = 0; i < N; i=i+5) 
     {
-        axis_t pixel_out;
-        output_stream >> pixel_out; // Read a pixel from the output stream
-        for (int k =PIX_CNT-1; k >=0; k--) 
+        for (int j =0; j < 5; j++) 
         {
-            fprintf(output_image1,"%d\r\n",(int)pixel_out.range(k*10+9,k*10)); 
-            pixels_received++; 
-        }        
+            buffer.range(j*64+63,j*64) = input_arr[i+j]; 
+        }
+        for (int l = 0; l < 4; l++)
+        {
+            for (int k =PIX_CNT-1; k >=0; k--) 
+            {
+                fprintf(output_image1,"%d\r\n",(int)buffer.range(l*80+k*10+9,l*80+k*10));             
+            }  
+        }
     }
-    fclose(output_image1);
-    if (pixels_received == IMG_ROWS * IMG_COLS)
-        return 0;
-    else
-        return -1;
-
+    return 0;   
 }

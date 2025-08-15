@@ -76,22 +76,41 @@ void XConv2d_3x3_DisableAutoRestart(XConv2d_3x3 *InstancePtr) {
     XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_AP_CTRL, 0);
 }
 
-void XConv2d_3x3_Set_arr(XConv2d_3x3 *InstancePtr, u64 Data) {
+void XConv2d_3x3_Set_arr1(XConv2d_3x3 *InstancePtr, u64 Data) {
     Xil_AssertVoid(InstancePtr != NULL);
     Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR_DATA, (u32)(Data));
-    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR_DATA + 4, (u32)(Data >> 32));
+    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR1_DATA, (u32)(Data));
+    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR1_DATA + 4, (u32)(Data >> 32));
 }
 
-u64 XConv2d_3x3_Get_arr(XConv2d_3x3 *InstancePtr) {
+u64 XConv2d_3x3_Get_arr1(XConv2d_3x3 *InstancePtr) {
     u64 Data;
 
     Xil_AssertNonvoid(InstancePtr != NULL);
     Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
 
-    Data = XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR_DATA);
-    Data += (u64)XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR_DATA + 4) << 32;
+    Data = XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR1_DATA);
+    Data += (u64)XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR1_DATA + 4) << 32;
+    return Data;
+}
+
+void XConv2d_3x3_Set_arr2(XConv2d_3x3 *InstancePtr, u64 Data) {
+    Xil_AssertVoid(InstancePtr != NULL);
+    Xil_AssertVoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR2_DATA, (u32)(Data));
+    XConv2d_3x3_WriteReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR2_DATA + 4, (u32)(Data >> 32));
+}
+
+u64 XConv2d_3x3_Get_arr2(XConv2d_3x3 *InstancePtr) {
+    u64 Data;
+
+    Xil_AssertNonvoid(InstancePtr != NULL);
+    Xil_AssertNonvoid(InstancePtr->IsReady == XIL_COMPONENT_IS_READY);
+
+    Data = XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR2_DATA);
+    Data += (u64)XConv2d_3x3_ReadReg(InstancePtr->Control_BaseAddress, XCONV2D_3X3_CONTROL_ADDR_ARR2_DATA + 4) << 32;
     return Data;
 }
 

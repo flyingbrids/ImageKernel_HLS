@@ -29,34 +29,34 @@
             <Interval-max>undef</Interval-max>
         </SummaryOfOverallLatency>
         <SummaryOfLoopLatency>
-            <VITIS_LOOP_161_1>
+            <VITIS_LOOP_180_1>
                 <Slack>7.30</Slack>
                 <TripCount>2049</TripCount>
                 <Latency>undef</Latency>
                 <AbsoluteTimeLatency>undef</AbsoluteTimeLatency>
                 <IterationLatency>undef</IterationLatency>
                 <InstanceList/>
-            </VITIS_LOOP_161_1>
+            </VITIS_LOOP_180_1>
         </SummaryOfLoopLatency>
         <SummaryOfViolations>
             <IssueType>-</IssueType>
             <ViolationType>-</ViolationType>
-            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:158</SourceLocation>
+            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:177~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
             <SummaryOfLoopViolations>
-                <VITIS_LOOP_161_1>
-                    <Name>VITIS_LOOP_161_1</Name>
+                <VITIS_LOOP_180_1>
+                    <Name>VITIS_LOOP_180_1</Name>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:194</SourceLocation>
-                </VITIS_LOOP_161_1>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:213~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
+                </VITIS_LOOP_180_1>
             </SummaryOfLoopViolations>
         </SummaryOfViolations>
     </PerformanceEstimates>
     <AreaEstimates>
         <Resources>
             <BRAM_18K>38</BRAM_18K>
-            <FF>3913</FF>
-            <LUT>8239</LUT>
+            <FF>4929</FF>
+            <LUT>9654</LUT>
             <URAM>0</URAM>
             <DSP>0</DSP>
         </Resources>
@@ -97,7 +97,7 @@
             <Type>scalar</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
-            <Bits>5</Bits>
+            <Bits>6</Bits>
             <Attribute>unknown</Attribute>
             <CType>int</CType>
             <HasCtrl>1</HasCtrl>
@@ -174,7 +174,7 @@
             <Type>scalar</Type>
             <IOProtocol>s_axi</IOProtocol>
             <Dir>in</Dir>
-            <Bits>5</Bits>
+            <Bits>6</Bits>
             <Attribute>unknown</Attribute>
             <CType>int</CType>
             <HasCtrl>1</HasCtrl>
@@ -829,85 +829,56 @@
             <Attribute>unknown</Attribute>
             <CType>int</CType>
         </RtlPorts>
-        <RtlPorts>
-            <name>output_r_TDATA</name>
-            <Object>output_r</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>out</Dir>
-            <Bits>80</Bits>
-            <Attribute>data</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>output_r_TVALID</name>
-            <Object>output_r</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>out</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
-        <RtlPorts>
-            <name>output_r_TREADY</name>
-            <Object>output_r</Object>
-            <Type>pointer</Type>
-            <Scope/>
-            <IOProtocol>axis</IOProtocol>
-            <IOConfig>register, both mode</IOConfig>
-            <Dir>in</Dir>
-            <Bits>1</Bits>
-            <Attribute>control</Attribute>
-            <CType>int</CType>
-        </RtlPorts>
     </InterfaceSummary>
     <RTLDesignHierarchy>
         <TopModule MAX_DEPTH="4">
             <ModuleName>conv2d_3x3</ModuleName>
             <InstancesList>
                 <Instance>
-                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_132_1_fu_232</InstName>
-                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</ModuleName>
+                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_133_1_fu_245</InstName>
+                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_133_1</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>232</ID>
-                    <BindInstances>add_ln145_fu_180_p2 add_ln145_1_fu_226_p2 add_ln145_2_fu_265_p2 add_ln145_3_fu_300_p2 add_ln132_fu_153_p2</BindInstances>
+                    <ID>245</ID>
+                    <BindInstances>add_ln146_fu_180_p2 add_ln146_1_fu_226_p2 add_ln146_2_fu_265_p2 add_ln146_3_fu_300_p2 add_ln133_fu_153_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_163_2_fu_242</InstName>
-                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</ModuleName>
+                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_182_2_fu_255</InstName>
+                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>242</ID>
-                    <BindInstances>col_assign_3_fu_1119_p2 col_assign_2_fu_1140_p2 tmp184_fu_3941_p2 sub_ln39_31_fu_3959_p2 sub_ln39_32_fu_3969_p2 tmp187_fu_2017_p2 sub_ln39_33_fu_2035_p2 sub_ln39_34_fu_2045_p2 tmp190_fu_2151_p2 sub_ln39_35_fu_2169_p2 sub_ln39_36_fu_2179_p2 tmp193_fu_2285_p2 sub_ln39_37_fu_2303_p2 sub_ln39_38_fu_2313_p2 tmp196_fu_2419_p2 sub_ln39_39_fu_2437_p2 sub_ln39_40_fu_2447_p2 tmp199_fu_2553_p2 sub_ln39_41_fu_2571_p2 sub_ln39_42_fu_2581_p2 tmp202_fu_2687_p2 sub_ln39_43_fu_2705_p2 sub_ln39_44_fu_2715_p2 tmp205_fu_2821_p2 sub_ln39_45_fu_2839_p2 sub_ln39_46_fu_2849_p2 grp_fu_583_p2 col_assign_1_fu_1063_p2 col_assign_fu_1084_p2 tmp_fu_4089_p2 sub_ln39_fu_4107_p2 sub_ln39_16_fu_4117_p2 tmp163_fu_3003_p2 sub_ln39_17_fu_3021_p2 sub_ln39_18_fu_3031_p2 tmp166_fu_3137_p2 sub_ln39_19_fu_3155_p2 sub_ln39_20_fu_3165_p2 tmp169_fu_3271_p2 sub_ln39_21_fu_3289_p2 sub_ln39_22_fu_3299_p2 tmp172_fu_3405_p2 sub_ln39_23_fu_3423_p2 sub_ln39_24_fu_3433_p2 tmp175_fu_3539_p2 sub_ln39_25_fu_3557_p2 sub_ln39_26_fu_3567_p2 tmp178_fu_3673_p2 sub_ln39_27_fu_3691_p2 sub_ln39_28_fu_3701_p2 tmp181_fu_3807_p2 sub_ln39_29_fu_3825_p2 sub_ln39_30_fu_3835_p2 grp_fu_583_p2</BindInstances>
+                    <ID>255</ID>
+                    <BindInstances>col_assign_3_fu_1115_p2 col_assign_2_fu_1136_p2 tmp184_fu_3937_p2 sub_ln40_31_fu_3955_p2 sub_ln40_32_fu_3965_p2 tmp187_fu_2013_p2 sub_ln40_33_fu_2031_p2 sub_ln40_34_fu_2041_p2 tmp190_fu_2147_p2 sub_ln40_35_fu_2165_p2 sub_ln40_36_fu_2175_p2 tmp193_fu_2281_p2 sub_ln40_37_fu_2299_p2 sub_ln40_38_fu_2309_p2 tmp196_fu_2415_p2 sub_ln40_39_fu_2433_p2 sub_ln40_40_fu_2443_p2 tmp199_fu_2549_p2 sub_ln40_41_fu_2567_p2 sub_ln40_42_fu_2577_p2 tmp202_fu_2683_p2 sub_ln40_43_fu_2701_p2 sub_ln40_44_fu_2711_p2 tmp205_fu_2817_p2 sub_ln40_45_fu_2835_p2 sub_ln40_46_fu_2845_p2 grp_fu_579_p2 col_assign_1_fu_1059_p2 col_assign_fu_1080_p2 tmp_fu_4085_p2 sub_ln40_fu_4103_p2 sub_ln40_16_fu_4113_p2 tmp163_fu_2999_p2 sub_ln40_17_fu_3017_p2 sub_ln40_18_fu_3027_p2 tmp166_fu_3133_p2 sub_ln40_19_fu_3151_p2 sub_ln40_20_fu_3161_p2 tmp169_fu_3267_p2 sub_ln40_21_fu_3285_p2 sub_ln40_22_fu_3295_p2 tmp172_fu_3401_p2 sub_ln40_23_fu_3419_p2 sub_ln40_24_fu_3429_p2 tmp175_fu_3535_p2 sub_ln40_25_fu_3553_p2 sub_ln40_26_fu_3563_p2 tmp178_fu_3669_p2 sub_ln40_27_fu_3687_p2 sub_ln40_28_fu_3697_p2 tmp181_fu_3803_p2 sub_ln40_29_fu_3821_p2 sub_ln40_30_fu_3831_p2 grp_fu_579_p2</BindInstances>
                 </Instance>
                 <Instance>
-                    <InstName>grp_shift_register_fu_360</InstName>
+                    <InstName>grp_shift_register_fu_372</InstName>
                     <ModuleName>shift_register</ModuleName>
                     <IsCompInst>true</IsCompInst>
-                    <ID>360</ID>
+                    <ID>372</ID>
                     <InstancesList>
                         <Instance>
                             <InstName>agg_result_sobelConvolve_fu_202</InstName>
                             <ModuleName>sobelConvolve</ModuleName>
                             <IsCompInst>true</IsCompInst>
                             <ID>202</ID>
-                            <BindInstances>tmp_fu_160_p2 sub_ln39_fu_178_p2 sub_ln39_1_fu_188_p2 tmp83_fu_318_p2 sub_ln39_2_fu_336_p2 sub_ln39_3_fu_346_p2 tmp86_fu_476_p2 sub_ln39_4_fu_494_p2 sub_ln39_5_fu_504_p2 tmp89_fu_634_p2 sub_ln39_6_fu_652_p2 sub_ln39_7_fu_662_p2 tmp92_fu_792_p2 sub_ln39_8_fu_810_p2 sub_ln39_9_fu_820_p2 tmp95_fu_950_p2 sub_ln39_10_fu_968_p2 sub_ln39_11_fu_978_p2 tmp98_fu_1108_p2 sub_ln39_12_fu_1126_p2 sub_ln39_13_fu_1136_p2 tmp101_fu_1266_p2 sub_ln39_14_fu_1284_p2 sub_ln39_15_fu_1294_p2</BindInstances>
+                            <BindInstances>tmp_fu_160_p2 sub_ln40_fu_178_p2 sub_ln40_1_fu_188_p2 tmp83_fu_318_p2 sub_ln40_2_fu_336_p2 sub_ln40_3_fu_346_p2 tmp86_fu_476_p2 sub_ln40_4_fu_494_p2 sub_ln40_5_fu_504_p2 tmp89_fu_634_p2 sub_ln40_6_fu_652_p2 sub_ln40_7_fu_662_p2 tmp92_fu_792_p2 sub_ln40_8_fu_810_p2 sub_ln40_9_fu_820_p2 tmp95_fu_950_p2 sub_ln40_10_fu_968_p2 sub_ln40_11_fu_978_p2 tmp98_fu_1108_p2 sub_ln40_12_fu_1126_p2 sub_ln40_13_fu_1136_p2 tmp101_fu_1266_p2 sub_ln40_14_fu_1284_p2 sub_ln40_15_fu_1294_p2</BindInstances>
                         </Instance>
                     </InstancesList>
                 </Instance>
+                <Instance>
+                    <InstName>grp_conv2d_3x3_Pipeline_VITIS_LOOP_157_1_fu_486</InstName>
+                    <ModuleName>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</ModuleName>
+                    <IsCompInst>true</IsCompInst>
+                    <ID>486</ID>
+                    <BindInstances>add_ln169_fu_268_p2 add_ln169_1_fu_292_p2 add_ln169_2_fu_335_p2 add_ln169_3_fu_359_p2 add_ln169_4_fu_395_p2 add_ln169_5_fu_419_p2 add_ln169_6_fu_473_p2 add_ln169_7_fu_497_p2 add_ln169_8_fu_551_p2 add_ln169_9_fu_575_p2 i_2_fu_308_p2</BindInstances>
+                </Instance>
             </InstancesList>
-            <BindInstances>input_fifo_U row_3_fu_517_p2 linebuf_0_0_U linebuf_1_0_U linebuf_2_0_U linebuf_1_1_U linebuf_2_1_U linebuf_0_1_U control_s_axi_U gmem_m_axi_U</BindInstances>
+            <BindInstances>input_fifo_U output_fifo_U row_3_fu_539_p2 linebuf_0_0_U linebuf_1_0_U linebuf_2_0_U linebuf_1_1_U linebuf_2_1_U linebuf_0_1_U control_s_axi_U gmem_m_axi_U</BindInstances>
         </TopModule>
     </RTLDesignHierarchy>
     <ModuleInformation>
         <Module>
-            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Name>
+            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_133_1</Name>
             <Loops>
-                <VITIS_LOOP_132_1/>
+                <VITIS_LOOP_133_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -926,8 +897,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_132_1>
-                        <Name>VITIS_LOOP_132_1</Name>
+                    <VITIS_LOOP_133_1>
+                        <Name>VITIS_LOOP_133_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>156672</TripCount>
                         <Latency>783361</Latency>
@@ -936,20 +907,20 @@
                         <PipelineDepth>7</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_132_1>
+                    </VITIS_LOOP_133_1>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:227</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_132_1>
-                            <Name>VITIS_LOOP_132_1</Name>
+                        <VITIS_LOOP_133_1>
+                            <Name>VITIS_LOOP_133_1</Name>
                             <IssueType>II Violation</IssueType>
                             <ViolationType>Memory Dependency</ViolationType>
                             <IterationDistance>1</IterationDistance>
-                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157</SourceLocation>
-                        </VITIS_LOOP_132_1>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:227</SourceLocation>
+                        </VITIS_LOOP_133_1>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
@@ -973,24 +944,24 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_132_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_fu_180_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:145" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln145"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_132_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_1_fu_226_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:145" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln145_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_132_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_2_fu_265_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:145" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln145_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_132_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln145_3_fu_300_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:145" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln145_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_132_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln132_fu_153_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln132"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_133_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln146_fu_180_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:146" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln146"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_133_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln146_1_fu_226_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:146" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln146_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_133_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln146_2_fu_265_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:146" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln146_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_133_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln146_3_fu_300_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:146" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln146_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_133_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln133_fu_153_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln133"/>
             </BindNodes>
         </Module>
         <Module>
-            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Name>
+            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Name>
             <Loops>
-                <VITIS_LOOP_163_2/>
+                <VITIS_LOOP_182_2/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
                     <TargetClockPeriod>10.00</TargetClockPeriod>
                     <ClockUncertainty>2.70</ClockUncertainty>
                     <TargetInitiationInterval>4294967295</TargetInitiationInterval>
-                    <EstimatedClockPeriod>5.075</EstimatedClockPeriod>
+                    <EstimatedClockPeriod>6.242</EstimatedClockPeriod>
                 </SummaryOfTimingAnalysis>
                 <SummaryOfOverallLatency>
                     <Best-caseLatency>undef</Best-caseLatency>
@@ -1003,8 +974,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_163_2>
-                        <Name>VITIS_LOOP_163_2</Name>
+                    <VITIS_LOOP_182_2>
+                        <Name>VITIS_LOOP_182_2</Name>
                         <Slack>7.30</Slack>
                         <TripCount>undef</TripCount>
                         <Latency>undef</Latency>
@@ -1013,19 +984,19 @@
                         <PipelineDepth>7</PipelineDepth>
                         <PipelineType>yes</PipelineType>
                         <InstanceList/>
-                    </VITIS_LOOP_163_2>
+                    </VITIS_LOOP_182_2>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:159</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:178~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_163_2>
-                            <Name>VITIS_LOOP_163_2</Name>
+                        <VITIS_LOOP_182_2>
+                            <Name>VITIS_LOOP_182_2</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164</SourceLocation>
-                        </VITIS_LOOP_163_2>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
+                        </VITIS_LOOP_182_2>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
@@ -1034,7 +1005,7 @@
                     <FF>1643</FF>
                     <AVAIL_FF>74880</AVAIL_FF>
                     <UTIL_FF>2</UTIL_FF>
-                    <LUT>3975</LUT>
+                    <LUT>3973</LUT>
                     <AVAIL_LUT>37440</AVAIL_LUT>
                     <UTIL_LUT>10</UTIL_LUT>
                     <BRAM_18K>0</BRAM_18K>
@@ -1049,60 +1020,60 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_3_fu_1119_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_2_fu_1140_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp184_fu_3941_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp184"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_31_fu_3959_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_31"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_32_fu_3969_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_32"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp187_fu_2017_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp187"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_33_fu_2035_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_33"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_34_fu_2045_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_34"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp190_fu_2151_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp190"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_35_fu_2169_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_35"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_36_fu_2179_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_36"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp193_fu_2285_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp193"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_37_fu_2303_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_37"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_38_fu_2313_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_38"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp196_fu_2419_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp196"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_39_fu_2437_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_40_fu_2447_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_40"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp199_fu_2553_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp199"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_41_fu_2571_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_41"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_42_fu_2581_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_42"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp202_fu_2687_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp202"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_43_fu_2705_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_43"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_44_fu_2715_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_44"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp205_fu_2821_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp205"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_45_fu_2839_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_45"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_46_fu_2849_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_46"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_583_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:182" STORAGESUBTYPE="" URAM="0" VARIABLE="col_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_1_fu_1063_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_fu_1084_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_4089_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_fu_4107_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_16_fu_4117_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_16"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp163_fu_3003_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp163"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_17_fu_3021_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_17"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_18_fu_3031_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_18"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp166_fu_3137_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp166"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_19_fu_3155_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_19"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_20_fu_3165_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_20"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp169_fu_3271_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp169"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_21_fu_3289_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_21"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_22_fu_3299_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_22"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp172_fu_3405_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp172"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_23_fu_3423_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_23"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_24_fu_3433_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_24"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp175_fu_3539_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp175"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_25_fu_3557_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_25"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_26_fu_3567_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_26"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp178_fu_3673_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp178"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_27_fu_3691_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_27"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_28_fu_3701_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_28"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp181_fu_3807_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp181"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_29_fu_3825_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_29"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_30_fu_3835_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_30"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_163_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_583_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:172" STORAGESUBTYPE="" URAM="0" VARIABLE="col_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_3_fu_1115_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_2_fu_1136_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp184_fu_3937_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp184"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_31_fu_3955_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_31"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_32_fu_3965_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_32"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp187_fu_2013_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp187"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_33_fu_2031_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_33"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_34_fu_2041_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_34"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp190_fu_2147_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp190"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_35_fu_2165_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_35"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_36_fu_2175_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_36"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp193_fu_2281_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp193"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_37_fu_2299_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_37"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_38_fu_2309_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_38"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp196_fu_2415_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp196"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_39_fu_2433_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_39"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_40_fu_2443_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp199_fu_2549_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp199"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_41_fu_2567_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_41"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_42_fu_2577_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_42"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp202_fu_2683_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp202"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_43_fu_2701_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_43"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_44_fu_2711_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_44"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp205_fu_2817_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp205"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_45_fu_2835_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_45"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_46_fu_2845_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_46"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_579_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:201" STORAGESUBTYPE="" URAM="0" VARIABLE="col_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_1_fu_1059_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="col_assign_fu_1080_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183" STORAGESUBTYPE="" URAM="0" VARIABLE="col_assign"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_4085_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_fu_4103_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_16_fu_4113_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_16"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp163_fu_2999_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp163"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_17_fu_3017_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_17"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_18_fu_3027_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_18"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp166_fu_3133_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp166"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_19_fu_3151_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_19"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_20_fu_3161_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_20"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp169_fu_3267_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp169"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_21_fu_3285_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_21"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_22_fu_3295_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_22"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp172_fu_3401_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp172"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_23_fu_3419_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_23"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_24_fu_3429_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_24"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp175_fu_3535_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp175"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_25_fu_3553_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_25"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_26_fu_3563_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_26"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp178_fu_3669_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp178"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_27_fu_3687_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_27"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_28_fu_3697_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_28"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="tmp181_fu_3803_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp181"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_29_fu_3821_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_29"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_30_fu_3831_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_30"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_182_2" OPTYPE="add" PRAGMA="" RTLNAME="grp_fu_579_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:191" STORAGESUBTYPE="" URAM="0" VARIABLE="col_4"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1128,7 +1099,7 @@
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40</SourceLocation>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -1151,30 +1122,30 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_160_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_fu_178_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_1_fu_188_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_1"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp83_fu_318_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp83"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_2_fu_336_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_2"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_3_fu_346_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_3"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp86_fu_476_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp86"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_4_fu_494_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_4"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_5_fu_504_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_5"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp89_fu_634_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp89"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_6_fu_652_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_6"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_7_fu_662_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_7"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp92_fu_792_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp92"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_8_fu_810_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_8"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_9_fu_820_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_9"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp95_fu_950_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp95"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_10_fu_968_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_10"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_11_fu_978_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_11"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp98_fu_1108_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp98"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_12_fu_1126_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_12"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_13_fu_1136_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_13"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp101_fu_1266_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp101"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_14_fu_1284_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_14"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln39_15_fu_1294_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:39" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln39_15"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp_fu_160_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_fu_178_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_1_fu_188_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp83_fu_318_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp83"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_2_fu_336_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_3_fu_346_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp86_fu_476_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp86"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_4_fu_494_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_5_fu_504_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp89_fu_634_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp89"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_6_fu_652_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_7_fu_662_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp92_fu_792_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp92"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_8_fu_810_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_9_fu_820_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp95_fu_950_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp95"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_10_fu_968_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_10"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_11_fu_978_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_11"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp98_fu_1108_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp98"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_12_fu_1126_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_12"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_13_fu_1136_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_13"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="tmp101_fu_1266_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="tmp101"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_14_fu_1284_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_14"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op sub" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="" OPTYPE="sub" PRAGMA="" RTLNAME="sub_ln40_15_fu_1294_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:40" STORAGESUBTYPE="" URAM="0" VARIABLE="sub_ln40_15"/>
             </BindNodes>
         </Module>
         <Module>
@@ -1200,7 +1171,7 @@
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:89</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:90</SourceLocation>
                 </SummaryOfViolations>
             </PerformanceEstimates>
             <AreaEstimates>
@@ -1224,9 +1195,90 @@
             </AreaEstimates>
         </Module>
         <Module>
+            <Name>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Name>
+            <Loops>
+                <VITIS_LOOP_157_1/>
+            </Loops>
+            <PerformanceEstimates>
+                <SummaryOfTimingAnalysis>
+                    <TargetClockPeriod>10.00</TargetClockPeriod>
+                    <ClockUncertainty>2.70</ClockUncertainty>
+                    <EstimatedClockPeriod>7.300</EstimatedClockPeriod>
+                </SummaryOfTimingAnalysis>
+                <SummaryOfOverallLatency>
+                    <Best-caseLatency>783368</Best-caseLatency>
+                    <Average-caseLatency>783368</Average-caseLatency>
+                    <Worst-caseLatency>783368</Worst-caseLatency>
+                    <Best-caseRealTimeLatency>7.834 ms</Best-caseRealTimeLatency>
+                    <Average-caseRealTimeLatency>7.834 ms</Average-caseRealTimeLatency>
+                    <Worst-caseRealTimeLatency>7.834 ms</Worst-caseRealTimeLatency>
+                    <PipelineInitiationInterval>783368</PipelineInitiationInterval>
+                    <PipelineType>no</PipelineType>
+                </SummaryOfOverallLatency>
+                <SummaryOfLoopLatency>
+                    <VITIS_LOOP_157_1>
+                        <Name>VITIS_LOOP_157_1</Name>
+                        <Slack>7.30</Slack>
+                        <TripCount>156672</TripCount>
+                        <Latency>783366</Latency>
+                        <AbsoluteTimeLatency>7.834 ms</AbsoluteTimeLatency>
+                        <PipelineII>5</PipelineII>
+                        <PipelineDepth>12</PipelineDepth>
+                        <PipelineType>yes</PipelineType>
+                        <InstanceList/>
+                    </VITIS_LOOP_157_1>
+                </SummaryOfLoopLatency>
+                <SummaryOfViolations>
+                    <IssueType>-</IssueType>
+                    <ViolationType>-</ViolationType>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:229</SourceLocation>
+                    <SummaryOfLoopViolations>
+                        <VITIS_LOOP_157_1>
+                            <Name>VITIS_LOOP_157_1</Name>
+                            <IssueType>II Violation</IssueType>
+                            <ViolationType>Resource Limitation</ViolationType>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:229</SourceLocation>
+                        </VITIS_LOOP_157_1>
+                    </SummaryOfLoopViolations>
+                </SummaryOfViolations>
+            </PerformanceEstimates>
+            <AreaEstimates>
+                <Resources>
+                    <FF>793</FF>
+                    <AVAIL_FF>74880</AVAIL_FF>
+                    <UTIL_FF>1</UTIL_FF>
+                    <LUT>1197</LUT>
+                    <AVAIL_LUT>37440</AVAIL_LUT>
+                    <UTIL_LUT>3</UTIL_LUT>
+                    <BRAM_18K>0</BRAM_18K>
+                    <AVAIL_BRAM>216</AVAIL_BRAM>
+                    <UTIL_BRAM>0</UTIL_BRAM>
+                    <DSP>0</DSP>
+                    <AVAIL_DSP>216</AVAIL_DSP>
+                    <UTIL_DSP>0</UTIL_DSP>
+                    <URAM>0</URAM>
+                    <AVAIL_URAM>0</AVAIL_URAM>
+                    <UTIL_URAM>0</UTIL_URAM>
+                </Resources>
+            </AreaEstimates>
+            <BindNodes>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_fu_268_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_1_fu_292_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_1"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_2_fu_335_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_2"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_3_fu_359_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_3"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_4_fu_395_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_4"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_5_fu_419_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_5"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_6_fu_473_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_6"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_7_fu_497_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_7"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_8_fu_551_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_8"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="add_ln169_9_fu_575_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169" STORAGESUBTYPE="" URAM="0" VARIABLE="add_ln169_9"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_157_1" OPTYPE="add" PRAGMA="" RTLNAME="i_2_fu_308_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157" STORAGESUBTYPE="" URAM="0" VARIABLE="i_2"/>
+            </BindNodes>
+        </Module>
+        <Module>
             <Name>conv2d_3x3</Name>
             <Loops>
-                <VITIS_LOOP_161_1/>
+                <VITIS_LOOP_180_1/>
             </Loops>
             <PerformanceEstimates>
                 <SummaryOfTimingAnalysis>
@@ -1245,8 +1297,8 @@
                     <PipelineType>no</PipelineType>
                 </SummaryOfOverallLatency>
                 <SummaryOfLoopLatency>
-                    <VITIS_LOOP_161_1>
-                        <Name>VITIS_LOOP_161_1</Name>
+                    <VITIS_LOOP_180_1>
+                        <Name>VITIS_LOOP_180_1</Name>
                         <Slack>7.30</Slack>
                         <TripCount>2049</TripCount>
                         <Latency>undef</Latency>
@@ -1255,22 +1307,22 @@
                         <PipelineDepth>undef</PipelineDepth>
                         <PipelineType>no</PipelineType>
                         <InstanceList>
-                            <Instance>grp_conv2d_3x3_Pipeline_VITIS_LOOP_163_2_fu_242</Instance>
-                            <Instance>grp_shift_register_fu_360</Instance>
+                            <Instance>grp_conv2d_3x3_Pipeline_VITIS_LOOP_182_2_fu_255</Instance>
+                            <Instance>grp_shift_register_fu_372</Instance>
                         </InstanceList>
-                    </VITIS_LOOP_161_1>
+                    </VITIS_LOOP_180_1>
                 </SummaryOfLoopLatency>
                 <SummaryOfViolations>
                     <IssueType>-</IssueType>
                     <ViolationType>-</ViolationType>
-                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:158</SourceLocation>
+                    <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:177~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
                     <SummaryOfLoopViolations>
-                        <VITIS_LOOP_161_1>
-                            <Name>VITIS_LOOP_161_1</Name>
+                        <VITIS_LOOP_180_1>
+                            <Name>VITIS_LOOP_180_1</Name>
                             <IssueType>-</IssueType>
                             <ViolationType>-</ViolationType>
-                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:194</SourceLocation>
-                        </VITIS_LOOP_161_1>
+                            <SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:213~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
+                        </VITIS_LOOP_180_1>
                     </SummaryOfLoopViolations>
                 </SummaryOfViolations>
             </PerformanceEstimates>
@@ -1279,12 +1331,12 @@
                     <BRAM_18K>38</BRAM_18K>
                     <AVAIL_BRAM>216</AVAIL_BRAM>
                     <UTIL_BRAM>17</UTIL_BRAM>
-                    <FF>3913</FF>
+                    <FF>4929</FF>
                     <AVAIL_FF>74880</AVAIL_FF>
-                    <UTIL_FF>5</UTIL_FF>
-                    <LUT>8239</LUT>
+                    <UTIL_FF>6</UTIL_FF>
+                    <LUT>9654</LUT>
                     <AVAIL_LUT>37440</AVAIL_LUT>
-                    <UTIL_LUT>22</UTIL_LUT>
+                    <UTIL_LUT>25</UTIL_LUT>
                     <URAM>0</URAM>
                     <AVAIL_URAM>0</AVAIL_URAM>
                     <UTIL_URAM>0</UTIL_URAM>
@@ -1294,8 +1346,9 @@
                 </Resources>
             </AreaEstimates>
             <BindNodes>
-                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="input_fifo_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:156" STORAGESIZE="80 2 1" STORAGESUBTYPE="" STORAGEUSAGE="fifo array" URAM="0" VARIABLE="input"/>
-                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_161_1" OPTYPE="add" PRAGMA="" RTLNAME="row_3_fu_517_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:194" STORAGESUBTYPE="" URAM="0" VARIABLE="row_3"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="input_fifo_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:225" STORAGESIZE="80 2 1" STORAGESUBTYPE="" STORAGEUSAGE="fifo array" URAM="0" VARIABLE="input"/>
+                <BindNode BINDTYPE="storage" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_storage fifo" DSP="0" ID="" IMPL="srl" LATENCY="0" LOOP="" OPTYPE="fifo" PRAGMA="" RTLNAME="output_fifo_U" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:225" STORAGESIZE="80 2 1" STORAGESUBTYPE="" STORAGEUSAGE="fifo array" URAM="0" VARIABLE="output"/>
+                <BindNode BINDTYPE="op" BRAM="0" BUNDLEDNAME="" DISPNAME="bind_op add" DSP="0" ID="" IMPL="fabric" LATENCY="0" LOOP="VITIS_LOOP_180_1" OPTYPE="add" PRAGMA="" RTLNAME="row_3_fu_539_p2" SOURCE="/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:213" STORAGESUBTYPE="" URAM="0" VARIABLE="row_3"/>
                 <BindNode BINDTYPE="storage" BRAM="5" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="linebuf_0_0_U" SOURCE="" STORAGESIZE="80 153 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p" URAM="0" VARIABLE="linebuf_0_0"/>
                 <BindNode BINDTYPE="storage" BRAM="5" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="linebuf_1_0_U" SOURCE="" STORAGESIZE="80 153 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p" URAM="0" VARIABLE="linebuf_1_0"/>
                 <BindNode BINDTYPE="storage" BRAM="5" BUNDLEDNAME="" DISPNAME="bind_storage ram_s2p" DSP="0" ID="" IMPL="auto" LATENCY="1" LOOP="" OPTYPE="ram_s2p" PRAGMA="" RTLNAME="linebuf_2_0_U" SOURCE="" STORAGESIZE="80 153 1" STORAGESUBTYPE="" STORAGEUSAGE="ram_s2p" URAM="0" VARIABLE="linebuf_2_0"/>
@@ -1312,21 +1365,23 @@
         <config_cosim wave_debug="0"/>
     </UserConfigCommands>
     <Args>
-        <Arg ArgName="arr" index="0" direction="in" srcType="long int*" srcSize="64">
+        <Arg ArgName="arr1" index="0" direction="inout" srcType="long int*" srcSize="64">
             <hwRefs>
-                <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="in"/>
-                <hwRef type="register" interface="s_axi_control" name="arr_1" usage="address" direction="in"/>
-                <hwRef type="register" interface="s_axi_control" name="arr_2" usage="address" direction="in"/>
+                <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="inout"/>
+                <hwRef type="register" interface="s_axi_control" name="arr1_1" usage="address" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="arr1_2" usage="address" direction="in"/>
             </hwRefs>
         </Arg>
-        <Arg ArgName="output" index="1" direction="out" srcType="stream&lt;ap_uint&lt;80&gt;, 0&gt;&amp;" srcSize="128">
+        <Arg ArgName="arr2" index="1" direction="inout" srcType="long int*" srcSize="64">
             <hwRefs>
-                <hwRef type="interface" interface="output_r" name="" usage="data" direction="out"/>
+                <hwRef type="interface" interface="m_axi_gmem" name="" usage="data" direction="inout"/>
+                <hwRef type="register" interface="s_axi_control" name="arr2_1" usage="address" direction="in"/>
+                <hwRef type="register" interface="s_axi_control" name="arr2_2" usage="address" direction="in"/>
             </hwRefs>
         </Arg>
     </Args>
     <Interfaces>
-        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="5" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
+        <Interface InterfaceName="s_axi_control" type="axi4lite" busTypeName="aximm" mode="slave" dataWidth="32" addrWidth="6" portPrefix="s_axi_control_" paramPrefix="C_S_AXI_CONTROL_">
             <ports>
                 <port>s_axi_control_ARADDR</port>
                 <port>s_axi_control_ARREADY</port>
@@ -1380,24 +1435,35 @@
                         <field offset="2" width="30" name="RESERVED_0" access="R" description="Reserved.  0s on read."/>
                     </fields>
                 </register>
-                <register offset="0x10" name="arr_1" access="W" description="Data signal of arr" range="32">
+                <register offset="0x10" name="arr1_1" access="W" description="Data signal of arr1" range="32">
                     <fields>
-                        <field offset="0" width="32" name="arr" access="W" description="Bit 31 to 0 of arr"/>
+                        <field offset="0" width="32" name="arr1" access="W" description="Bit 31 to 0 of arr1"/>
                     </fields>
                 </register>
-                <register offset="0x14" name="arr_2" access="W" description="Data signal of arr" range="32">
+                <register offset="0x14" name="arr1_2" access="W" description="Data signal of arr1" range="32">
                     <fields>
-                        <field offset="0" width="32" name="arr" access="W" description="Bit 63 to 32 of arr"/>
+                        <field offset="0" width="32" name="arr1" access="W" description="Bit 63 to 32 of arr1"/>
+                    </fields>
+                </register>
+                <register offset="0x1c" name="arr2_1" access="W" description="Data signal of arr2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="arr2" access="W" description="Bit 31 to 0 of arr2"/>
+                    </fields>
+                </register>
+                <register offset="0x20" name="arr2_2" access="W" description="Data signal of arr2" range="32">
+                    <fields>
+                        <field offset="0" width="32" name="arr2" access="W" description="Bit 63 to 32 of arr2"/>
                     </fields>
                 </register>
             </registers>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="arr"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="16" argName="arr1"/>
+                <constraint constraint_type="pragma interface" mode="s_axilite" register_option="0" offset="28" argName="arr2"/>
             </constraints>
         </Interface>
         <Interface InterfaceName="ap_clk" type="clock" busTypeName="clock" mode="slave">
             <busParams>
-                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control:m_axi_gmem:output_r</busParam>
+                <busParam busParamName="ASSOCIATED_BUSIF">s_axi_control:m_axi_gmem</busParam>
                 <busParam busParamName="ASSOCIATED_RESET">ap_rst_n</busParam>
             </busParams>
             <portMaps>
@@ -1437,7 +1503,7 @@
                 <busParam busParamName="MAX_WRITE_BURST_LENGTH">16</busParam>
                 <busParam busParamName="MAX_BURST_LENGTH">256</busParam>
                 <busParam busParamName="PROTOCOL">AXI4</busParam>
-                <busParam busParamName="READ_WRITE_MODE">READ_ONLY</busParam>
+                <busParam busParamName="READ_WRITE_MODE">READ_WRITE</busParam>
                 <busParam busParamName="HAS_BURST">0</busParam>
                 <busParam busParamName="SUPPORTS_NARROW_BURST">0</busParam>
             </busParams>
@@ -1489,18 +1555,10 @@
                 <port>m_axi_gmem_WVALID</port>
             </ports>
             <constraints>
-                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" argName="arr"/>
-                <constraint constraint_type="bitwidth" orig_bitwidth="64" final_bitwidth="64" argName="arr"/>
-            </constraints>
-        </Interface>
-        <Interface InterfaceName="output_r" type="axi4stream" busTypeName="axis" mode="master" dataWidth="80" portPrefix="output_r_">
-            <ports>
-                <port>output_r_TDATA</port>
-                <port>output_r_TREADY</port>
-                <port>output_r_TVALID</port>
-            </ports>
-            <constraints>
-                <constraint constraint_type="pragma interface" mode="axis" register_option="0" register_mode="both" argName="output"/>
+                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" argName="arr1"/>
+                <constraint constraint_type="bitwidth" orig_bitwidth="64" final_bitwidth="64" argName="arr1"/>
+                <constraint constraint_type="pragma interface" mode="m_axi" register_option="0" offset="slave" latency="0" num_read_outstanding="16" num_write_outstanding="16" max_read_burst_length="16" max_write_burst_length="16" max_widen_bitwidth="0" argName="arr2"/>
+                <constraint constraint_type="bitwidth" orig_bitwidth="64" final_bitwidth="64" argName="arr2"/>
             </constraints>
         </Interface>
     </Interfaces>
@@ -1515,7 +1573,7 @@
             <item name="S_AXILITE Interfaces">
                 <table>
                     <keys size="5">Interface, Data Width, Address Width, Offset, Register</keys>
-                    <column name="s_axi_control">32, 5, 16, 0</column>
+                    <column name="s_axi_control">32, 6, 16, 0</column>
                 </table>
             </item>
             <item name="S_AXILITE Registers">
@@ -1525,14 +1583,10 @@
                     <column name="s_axi_control">GIER, 0x04, 32, RW, Global Interrupt Enable Register, 0=Enable</column>
                     <column name="s_axi_control">IP_IER, 0x08, 32, RW, IP Interrupt Enable Register, 0=CHAN0_INT_EN 1=CHAN1_INT_EN</column>
                     <column name="s_axi_control">IP_ISR, 0x0c, 32, RW, IP Interrupt Status Register, 0=CHAN0_INT_ST 1=CHAN1_INT_ST</column>
-                    <column name="s_axi_control">arr_1, 0x10, 32, W, Data signal of arr, </column>
-                    <column name="s_axi_control">arr_2, 0x14, 32, W, Data signal of arr, </column>
-                </table>
-            </item>
-            <item name="AXIS">
-                <table>
-                    <keys size="6">Interface, Direction, Register Mode, TDATA, TREADY, TVALID</keys>
-                    <column name="output_r">out, both, 80, 1, 1</column>
+                    <column name="s_axi_control">arr1_1, 0x10, 32, W, Data signal of arr1, </column>
+                    <column name="s_axi_control">arr1_2, 0x14, 32, W, Data signal of arr1, </column>
+                    <column name="s_axi_control">arr2_1, 0x1c, 32, W, Data signal of arr2, </column>
+                    <column name="s_axi_control">arr2_2, 0x20, 32, W, Data signal of arr2, </column>
                 </table>
             </item>
             <item name="TOP LEVEL CONTROL">
@@ -1551,17 +1605,19 @@
             <item name="Top Function Arguments">
                 <table>
                     <keys size="3">Argument, Direction, Datatype</keys>
-                    <column name="arr">in, long int*</column>
-                    <column name="output">out, stream&lt;ap_uint&lt;80&gt; 0&gt;&amp;</column>
+                    <column name="arr1">inout, long int*</column>
+                    <column name="arr2">inout, long int*</column>
                 </table>
             </item>
             <item name="SW-to-HW Mapping">
                 <table>
                     <keys size="5">Argument, HW Interface, HW Type, HW Usage, HW Info</keys>
-                    <column name="arr">m_axi_gmem, interface, , </column>
-                    <column name="arr">s_axi_control, register, offset, name=arr_1 offset=0x10 range=32</column>
-                    <column name="arr">s_axi_control, register, offset, name=arr_2 offset=0x14 range=32</column>
-                    <column name="output">output_r, interface, , </column>
+                    <column name="arr1">m_axi_gmem, interface, , </column>
+                    <column name="arr1">s_axi_control, register, offset, name=arr1_1 offset=0x10 range=32</column>
+                    <column name="arr1">s_axi_control, register, offset, name=arr1_2 offset=0x14 range=32</column>
+                    <column name="arr2">m_axi_gmem, interface, , </column>
+                    <column name="arr2">s_axi_control, register, offset, name=arr2_1 offset=0x1c range=32</column>
+                    <column name="arr2">s_axi_control, register, offset, name=arr2_2 offset=0x20 range=32</column>
                 </table>
             </item>
         </section>
@@ -1572,14 +1628,15 @@
             <item name="Inferred Burst Summary">
                 <table>
                     <keys size="6">HW Interface, Direction, Length, Width, Loop, Loop Location</keys>
-                    <column name="m_axi_gmem">read, 783360, 64, VITIS_LOOP_132_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23</column>
+                    <column name="m_axi_gmem">read, 783360, 64, VITIS_LOOP_133_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133:23</column>
                 </table>
             </item>
             <item name="All M_AXI Variable Accesses">
                 <table>
                     <keys size="10">HW Interface, Variable, Access Location, Direction, Burst Status, Length, Loop, Loop Location, Resolution, Problem</keys>
-                    <column name="m_axi_gmem">arr, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:137:43, read, Widen Fail, , VITIS_LOOP_132_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23, 214-353, Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
-                    <column name="m_axi_gmem">arr, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:137:43, read, Inferred, 783360, VITIS_LOOP_132_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132:23, , </column>
+                    <column name="m_axi_gmem">arr1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:138:43, read, Widen Fail, , VITIS_LOOP_133_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133:23, 214-353, Could not widen since type i64 size is greater than or equal to the max_widen_bitwidth threshold of 0</column>
+                    <column name="m_axi_gmem">arr1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:138:43, read, Inferred, 783360, VITIS_LOOP_133_1, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:133:23, , </column>
+                    <column name="m_axi_gmem">arr2, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:169:36, write, Fail, , VITIS_LOOP_165_3, /home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:165:27, 214-232, Access store is in the conditional branch</column>
                 </table>
             </item>
         </section>
@@ -1649,27 +1706,32 @@
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1016" status="valid" parentFunction="shift_up" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1028" status="valid" parentFunction="insert_bottom" variable="" isDirective="0" options=""/>
         <Pragma type="inline" location="../../../Vitis_Libraries/vision/L1/include/common/xf_video_mem.hpp:1040" status="valid" parentFunction="insert_top" variable="" isDirective="0" options=""/>
-        <Pragma type="array_partition" location="../conv2d_hls.cpp:26" status="valid" parentFunction="sobelconvolve" variable="kernel" isDirective="0" options="variable=kernel complete dim=0"/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:35" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:38" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
-        <Pragma type="array_partition" location="../conv2d_hls.cpp:53" status="valid" parentFunction="shift_register" variable="window" isDirective="0" options="variable=window complete dim=0"/>
-        <Pragma type="array_partition" location="../conv2d_hls.cpp:54" status="valid" parentFunction="shift_register" variable="window_adjust" isDirective="0" options="variable=window_adjust complete dim=0"/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:88" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:94" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:97" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:111" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
-        <Pragma type="unroll" location="../conv2d_hls.cpp:114" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:128" status="valid" parentFunction="data_mm2s" variable="stream" isDirective="0" options="axis port=stream"/>
-        <Pragma type="pipeline" location="../conv2d_hls.cpp:134" status="valid" parentFunction="data_mm2s" variable="" isDirective="0" options=""/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:152" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="m_axi port = arr depth = 783360"/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:153" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="s_axilite port = arr"/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:154" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="s_axilite port = return"/>
-        <Pragma type="interface" location="../conv2d_hls.cpp:155" status="valid" parentFunction="conv2d_3x3" variable="output" isDirective="0" options="axis port=output"/>
-        <Pragma type="pipeline" location="../conv2d_hls.cpp:162" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options=""/>
-        <Pragma type="pipeline" location="../conv2d_hls.cpp:164" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:27" status="valid" parentFunction="sobelconvolve" variable="kernel" isDirective="0" options="variable=kernel complete dim=0"/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:36" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:39" status="valid" parentFunction="sobelconvolve" variable="" isDirective="0" options=""/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:54" status="valid" parentFunction="shift_register" variable="window" isDirective="0" options="variable=window complete dim=0"/>
+        <Pragma type="array_partition" location="../conv2d_hls.cpp:55" status="valid" parentFunction="shift_register" variable="window_adjust" isDirective="0" options="variable=window_adjust complete dim=0"/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:89" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:95" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:98" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:112" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="unroll" location="../conv2d_hls.cpp:115" status="valid" parentFunction="shift_register" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:129" status="valid" parentFunction="data_mm2s" variable="stream" isDirective="0" options="axis port=stream"/>
+        <Pragma type="pipeline" location="../conv2d_hls.cpp:135" status="valid" parentFunction="data_mm2s" variable="" isDirective="0" options=""/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:154" status="valid" parentFunction="data_s2mm" variable="stream" isDirective="0" options="axis port=stream"/>
+        <Pragma type="pipeline" location="../conv2d_hls.cpp:181" status="valid" parentFunction="image_filter" variable="" isDirective="0" options=""/>
+        <Pragma type="pipeline" location="../conv2d_hls.cpp:183" status="valid" parentFunction="image_filter" variable="" isDirective="0" options="II = 1"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:220" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="m_axi port = arr1 depth = 783360"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:221" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="s_axilite port = arr1"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:222" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="m_axi port = arr2 depth = 783360"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:223" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="s_axilite port = arr2"/>
+        <Pragma type="interface" location="../conv2d_hls.cpp:224" status="valid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="s_axilite port = return"/>
+        <Pragma type="data_flow" location="../conv2d_hls.cpp:226" status="invalid" parentFunction="conv2d_3x3" variable="" isDirective="0" options="">
+            <Msg msg_id="207-5584" msg_severity="WARNING" msg_body="unknown HLS pragma ignored"/>
+        </Pragma>
     </PragmaReport>
     <AutoPragmaReport>
-        <AutoPragma type="array_partition" parentFunction="conv2d_3x3" options="dim=1 type=complete  variable=linebuf" pragmaLocId="../conv2d_hls.cpp:17:0" srcPragmaType="pipeline" srcPragmaLoc="../conv2d_hls.cpp:164" srcPragmaSource="pragma" srcIsDirective="0" variable="linebuf" varLoc=""/>
+        <AutoPragma type="array_partition" parentFunction="conv2d_3x3" options="dim=1 type=complete  variable=linebuf" pragmaLocId="../conv2d_hls.cpp:18:0" srcPragmaType="pipeline" srcPragmaLoc="../conv2d_hls.cpp:183" srcPragmaSource="pragma" srcIsDirective="0" variable="linebuf" varLoc=""/>
     </AutoPragmaReport>
 </profile>
 

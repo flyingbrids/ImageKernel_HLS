@@ -8,7 +8,7 @@
 `timescale 1ns/1ps
 module conv2d_3x3_control_s_axi
 #(parameter
-    C_S_AXI_ADDR_WIDTH = 5,
+    C_S_AXI_ADDR_WIDTH = 6,
     C_S_AXI_DATA_WIDTH = 32
 )(
     input  wire                          ACLK,
@@ -32,7 +32,8 @@ module conv2d_3x3_control_s_axi
     output wire                          RVALID,
     input  wire                          RREADY,
     output wire                          interrupt,
-    output wire [63:0]                   arr,
+    output wire [63:0]                   arr1,
+    output wire [63:0]                   arr2,
     output wire                          ap_start,
     input  wire                          ap_done,
     input  wire                          ap_ready,
@@ -60,30 +61,38 @@ module conv2d_3x3_control_s_axi
 //        bit 0 - ap_done (Read/TOW)
 //        bit 1 - ap_ready (Read/TOW)
 //        others - reserved
-// 0x10 : Data signal of arr
-//        bit 31~0 - arr[31:0] (Read/Write)
-// 0x14 : Data signal of arr
-//        bit 31~0 - arr[63:32] (Read/Write)
+// 0x10 : Data signal of arr1
+//        bit 31~0 - arr1[31:0] (Read/Write)
+// 0x14 : Data signal of arr1
+//        bit 31~0 - arr1[63:32] (Read/Write)
 // 0x18 : reserved
+// 0x1c : Data signal of arr2
+//        bit 31~0 - arr2[31:0] (Read/Write)
+// 0x20 : Data signal of arr2
+//        bit 31~0 - arr2[63:32] (Read/Write)
+// 0x24 : reserved
 // (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 //------------------------Parameter----------------------
 localparam
-    ADDR_AP_CTRL    = 5'h00,
-    ADDR_GIE        = 5'h04,
-    ADDR_IER        = 5'h08,
-    ADDR_ISR        = 5'h0c,
-    ADDR_ARR_DATA_0 = 5'h10,
-    ADDR_ARR_DATA_1 = 5'h14,
-    ADDR_ARR_CTRL   = 5'h18,
-    WRIDLE          = 2'd0,
-    WRDATA          = 2'd1,
-    WRRESP          = 2'd2,
-    WRRESET         = 2'd3,
-    RDIDLE          = 2'd0,
-    RDDATA          = 2'd1,
-    RDRESET         = 2'd2,
-    ADDR_BITS                = 5;
+    ADDR_AP_CTRL     = 6'h00,
+    ADDR_GIE         = 6'h04,
+    ADDR_IER         = 6'h08,
+    ADDR_ISR         = 6'h0c,
+    ADDR_ARR1_DATA_0 = 6'h10,
+    ADDR_ARR1_DATA_1 = 6'h14,
+    ADDR_ARR1_CTRL   = 6'h18,
+    ADDR_ARR2_DATA_0 = 6'h1c,
+    ADDR_ARR2_DATA_1 = 6'h20,
+    ADDR_ARR2_CTRL   = 6'h24,
+    WRIDLE           = 2'd0,
+    WRDATA           = 2'd1,
+    WRRESP           = 2'd2,
+    WRRESET          = 2'd3,
+    RDIDLE           = 2'd0,
+    RDDATA           = 2'd1,
+    RDRESET          = 2'd2,
+    ADDR_BITS                = 6;
 
 //------------------------Local signal-------------------
     reg  [1:0]                    wstate = WRRESET;
@@ -112,7 +121,8 @@ localparam
     reg                           int_gie = 1'b0;
     reg  [1:0]                    int_ier = 2'b0;
     reg  [1:0]                    int_isr = 2'b0;
-    reg  [63:0]                   int_arr = 'b0;
+    reg  [63:0]                   int_arr1 = 'b0;
+    reg  [63:0]                   int_arr2 = 'b0;
 
 //------------------------Instantiation------------------
 
@@ -222,11 +232,17 @@ always @(posedge ACLK) begin
                 ADDR_ISR: begin
                     rdata <= int_isr;
                 end
-                ADDR_ARR_DATA_0: begin
-                    rdata <= int_arr[31:0];
+                ADDR_ARR1_DATA_0: begin
+                    rdata <= int_arr1[31:0];
                 end
-                ADDR_ARR_DATA_1: begin
-                    rdata <= int_arr[63:32];
+                ADDR_ARR1_DATA_1: begin
+                    rdata <= int_arr1[63:32];
+                end
+                ADDR_ARR2_DATA_0: begin
+                    rdata <= int_arr2[31:0];
+                end
+                ADDR_ARR2_DATA_1: begin
+                    rdata <= int_arr2[63:32];
                 end
             endcase
         end
@@ -240,7 +256,8 @@ assign ap_start          = int_ap_start;
 assign task_ap_done      = (ap_done && !auto_restart_status) || auto_restart_done;
 assign task_ap_ready     = ap_ready && !int_auto_restart;
 assign auto_restart_done = auto_restart_status && (ap_idle && !int_ap_idle);
-assign arr               = int_arr;
+assign arr1              = int_arr1;
+assign arr2              = int_arr2;
 // int_interrupt
 always @(posedge ACLK) begin
     if (ARESET)
@@ -373,23 +390,43 @@ always @(posedge ACLK) begin
     end
 end
 
-// int_arr[31:0]
+// int_arr1[31:0]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arr[31:0] <= 0;
+        int_arr1[31:0] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_ARR_DATA_0)
-            int_arr[31:0] <= (WDATA[31:0] & wmask) | (int_arr[31:0] & ~wmask);
+        if (w_hs && waddr == ADDR_ARR1_DATA_0)
+            int_arr1[31:0] <= (WDATA[31:0] & wmask) | (int_arr1[31:0] & ~wmask);
     end
 end
 
-// int_arr[63:32]
+// int_arr1[63:32]
 always @(posedge ACLK) begin
     if (ARESET)
-        int_arr[63:32] <= 0;
+        int_arr1[63:32] <= 0;
     else if (ACLK_EN) begin
-        if (w_hs && waddr == ADDR_ARR_DATA_1)
-            int_arr[63:32] <= (WDATA[31:0] & wmask) | (int_arr[63:32] & ~wmask);
+        if (w_hs && waddr == ADDR_ARR1_DATA_1)
+            int_arr1[63:32] <= (WDATA[31:0] & wmask) | (int_arr1[63:32] & ~wmask);
+    end
+end
+
+// int_arr2[31:0]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arr2[31:0] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_ARR2_DATA_0)
+            int_arr2[31:0] <= (WDATA[31:0] & wmask) | (int_arr2[31:0] & ~wmask);
+    end
+end
+
+// int_arr2[63:32]
+always @(posedge ACLK) begin
+    if (ARESET)
+        int_arr2[63:32] <= 0;
+    else if (ACLK_EN) begin
+        if (w_hs && waddr == ADDR_ARR2_DATA_1)
+            int_arr2[63:32] <= (WDATA[31:0] & wmask) | (int_arr2[63:32] & ~wmask);
     end
 end
 

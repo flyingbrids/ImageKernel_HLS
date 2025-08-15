@@ -7,6 +7,7 @@ const int kernel[3][3] = {
         { -2,  0,  2 },
         { -1,  0,  1 }
 };
+
 /*
 const int kernel[3][3] = {
         { 0,  0,  0 },
@@ -148,13 +149,31 @@ void data_mm2s(long* arr, hls::stream<axis_t> &stream)
     }
 }
 
-void conv2d_3x3(long* arr, hls::stream<axis_t> &output) {
-    #pragma HLS interface m_axi port = arr depth = N
-    #pragma HLS interface s_axilite port = arr
-    #pragma HLS interface s_axilite port = return 
-    #pragma HLS interface axis port=output 
-    hls::stream<axis_t> input;
-    data_mm2s(arr,input);
+void data_s2mm(long* arr, hls::stream<axis_t> &stream) 
+{
+    #pragma HLS interface axis port=stream
+    ap_uint<320> buffer;
+    static int output_addr = 0;
+    for (int i=0; i<IMG_ROWS*IMG_COLS/PIX_CNT; i=i+4) 
+    {
+        for (int k=0; k < 4; k++) 
+        {
+            axis_t data_in;
+            data_in = stream.read();
+            buffer.range(k*80 + 79, k*80) = data_in;
+        }
+        for (int j=0; j < 5; j++) 
+        {
+            if (output_addr < N) 
+            {
+                arr[output_addr++] = buffer.range(j*64 + 63, j*64);
+            }
+        }
+    }
+}
+
+void image_filter (hls::stream<axis_t> &input, hls::stream<axis_t> &output) 
+{
     int row = 0; 
     int col = 0;  
     axis_t data_out;
@@ -194,7 +213,21 @@ void conv2d_3x3(long* arr, hls::stream<axis_t> &output) {
         row ++;
     }
     while (row <= IMG_ROWS);
- }
+}
+
+void conv2d_3x3(long* arr1, long* arr2)
+{
+    #pragma HLS interface m_axi port = arr1 depth = N
+    #pragma HLS interface s_axilite port = arr1
+    #pragma HLS interface m_axi port = arr2 depth = N
+    #pragma HLS interface s_axilite port = arr2
+    #pragma HLS interface s_axilite port = return 
+    hls::stream<axis_t> input, output;
+    #pragma HLS DATA_FLOW
+    data_mm2s(arr1,input);
+    image_filter(input, output);
+    data_s2mm(arr2,output);    
+}
 
 
 

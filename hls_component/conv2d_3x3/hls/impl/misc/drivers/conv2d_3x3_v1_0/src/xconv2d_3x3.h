@@ -99,8 +99,10 @@ u32 XConv2d_3x3_IsReady(XConv2d_3x3 *InstancePtr);
 void XConv2d_3x3_EnableAutoRestart(XConv2d_3x3 *InstancePtr);
 void XConv2d_3x3_DisableAutoRestart(XConv2d_3x3 *InstancePtr);
 
-void XConv2d_3x3_Set_arr(XConv2d_3x3 *InstancePtr, u64 Data);
-u64 XConv2d_3x3_Get_arr(XConv2d_3x3 *InstancePtr);
+void XConv2d_3x3_Set_arr1(XConv2d_3x3 *InstancePtr, u64 Data);
+u64 XConv2d_3x3_Get_arr1(XConv2d_3x3 *InstancePtr);
+void XConv2d_3x3_Set_arr2(XConv2d_3x3 *InstancePtr, u64 Data);
+u64 XConv2d_3x3_Get_arr2(XConv2d_3x3 *InstancePtr);
 
 void XConv2d_3x3_InterruptGlobalEnable(XConv2d_3x3 *InstancePtr);
 void XConv2d_3x3_InterruptGlobalDisable(XConv2d_3x3 *InstancePtr);

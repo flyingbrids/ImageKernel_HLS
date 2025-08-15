@@ -11,7 +11,7 @@ use IEEE.NUMERIC_STD.all;
 
 entity conv2d_3x3_control_s_axi is
 generic (
-    C_S_AXI_ADDR_WIDTH    : INTEGER := 5;
+    C_S_AXI_ADDR_WIDTH    : INTEGER := 6;
     C_S_AXI_DATA_WIDTH    : INTEGER := 32);
 port (
     ACLK                  :in   STD_LOGIC;
@@ -35,7 +35,8 @@ port (
     RVALID                :out  STD_LOGIC;
     RREADY                :in   STD_LOGIC;
     interrupt             :out  STD_LOGIC;
-    arr                   :out  STD_LOGIC_VECTOR(63 downto 0);
+    arr1                  :out  STD_LOGIC_VECTOR(63 downto 0);
+    arr2                  :out  STD_LOGIC_VECTOR(63 downto 0);
     ap_start              :out  STD_LOGIC;
     ap_done               :in   STD_LOGIC;
     ap_ready              :in   STD_LOGIC;
@@ -65,11 +66,16 @@ end entity conv2d_3x3_control_s_axi;
 --        bit 0 - ap_done (Read/TOW)
 --        bit 1 - ap_ready (Read/TOW)
 --        others - reserved
--- 0x10 : Data signal of arr
---        bit 31~0 - arr[31:0] (Read/Write)
--- 0x14 : Data signal of arr
---        bit 31~0 - arr[63:32] (Read/Write)
+-- 0x10 : Data signal of arr1
+--        bit 31~0 - arr1[31:0] (Read/Write)
+-- 0x14 : Data signal of arr1
+--        bit 31~0 - arr1[63:32] (Read/Write)
 -- 0x18 : reserved
+-- 0x1c : Data signal of arr2
+--        bit 31~0 - arr2[31:0] (Read/Write)
+-- 0x20 : Data signal of arr2
+--        bit 31~0 - arr2[63:32] (Read/Write)
+-- 0x24 : reserved
 -- (SC = Self Clear, COR = Clear on Read, TOW = Toggle on Write, COH = Clear on Handshake)
 
 architecture behave of conv2d_3x3_control_s_axi is
@@ -77,14 +83,17 @@ architecture behave of conv2d_3x3_control_s_axi is
     signal wstate  : states := wrreset;
     signal rstate  : states := rdreset;
     signal wnext, rnext: states;
-    constant ADDR_AP_CTRL    : INTEGER := 16#00#;
-    constant ADDR_GIE        : INTEGER := 16#04#;
-    constant ADDR_IER        : INTEGER := 16#08#;
-    constant ADDR_ISR        : INTEGER := 16#0c#;
-    constant ADDR_ARR_DATA_0 : INTEGER := 16#10#;
-    constant ADDR_ARR_DATA_1 : INTEGER := 16#14#;
-    constant ADDR_ARR_CTRL   : INTEGER := 16#18#;
-    constant ADDR_BITS         : INTEGER := 5;
+    constant ADDR_AP_CTRL     : INTEGER := 16#00#;
+    constant ADDR_GIE         : INTEGER := 16#04#;
+    constant ADDR_IER         : INTEGER := 16#08#;
+    constant ADDR_ISR         : INTEGER := 16#0c#;
+    constant ADDR_ARR1_DATA_0 : INTEGER := 16#10#;
+    constant ADDR_ARR1_DATA_1 : INTEGER := 16#14#;
+    constant ADDR_ARR1_CTRL   : INTEGER := 16#18#;
+    constant ADDR_ARR2_DATA_0 : INTEGER := 16#1c#;
+    constant ADDR_ARR2_DATA_1 : INTEGER := 16#20#;
+    constant ADDR_ARR2_CTRL   : INTEGER := 16#24#;
+    constant ADDR_BITS         : INTEGER := 6;
 
     signal waddr               : UNSIGNED(ADDR_BITS-1 downto 0);
     signal wmask               : UNSIGNED(C_S_AXI_DATA_WIDTH-1 downto 0);
@@ -112,7 +121,8 @@ architecture behave of conv2d_3x3_control_s_axi is
     signal int_gie             : STD_LOGIC := '0';
     signal int_ier             : UNSIGNED(1 downto 0) := (others => '0');
     signal int_isr             : UNSIGNED(1 downto 0) := (others => '0');
-    signal int_arr             : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_arr1            : UNSIGNED(63 downto 0) := (others => '0');
+    signal int_arr2            : UNSIGNED(63 downto 0) := (others => '0');
 
 
 begin
@@ -241,10 +251,14 @@ begin
                         rdata_data(1 downto 0) <= int_ier;
                     when ADDR_ISR =>
                         rdata_data(1 downto 0) <= int_isr;
-                    when ADDR_ARR_DATA_0 =>
-                        rdata_data <= RESIZE(int_arr(31 downto 0), 32);
-                    when ADDR_ARR_DATA_1 =>
-                        rdata_data <= RESIZE(int_arr(63 downto 32), 32);
+                    when ADDR_ARR1_DATA_0 =>
+                        rdata_data <= RESIZE(int_arr1(31 downto 0), 32);
+                    when ADDR_ARR1_DATA_1 =>
+                        rdata_data <= RESIZE(int_arr1(63 downto 32), 32);
+                    when ADDR_ARR2_DATA_0 =>
+                        rdata_data <= RESIZE(int_arr2(31 downto 0), 32);
+                    when ADDR_ARR2_DATA_1 =>
+                        rdata_data <= RESIZE(int_arr2(63 downto 32), 32);
                     when others =>
                         NULL;
                     end case;
@@ -259,7 +273,8 @@ begin
     task_ap_done         <= (ap_done and not auto_restart_status) or auto_restart_done;
     task_ap_ready        <= ap_ready and not int_auto_restart;
     auto_restart_done    <= auto_restart_status and (ap_idle and not int_ap_idle);
-    arr                  <= STD_LOGIC_VECTOR(int_arr);
+    arr1                 <= STD_LOGIC_VECTOR(int_arr1);
+    arr2                 <= STD_LOGIC_VECTOR(int_arr2);
 
     process (ACLK)
     begin
@@ -435,8 +450,8 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_ARR_DATA_0) then
-                    int_arr(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr(31 downto 0));
+                if (w_hs = '1' and waddr = ADDR_ARR1_DATA_0) then
+                    int_arr1(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr1(31 downto 0));
                 end if;
             end if;
         end if;
@@ -446,8 +461,30 @@ begin
     begin
         if (ACLK'event and ACLK = '1') then
             if (ACLK_EN = '1') then
-                if (w_hs = '1' and waddr = ADDR_ARR_DATA_1) then
-                    int_arr(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr(63 downto 32));
+                if (w_hs = '1' and waddr = ADDR_ARR1_DATA_1) then
+                    int_arr1(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr1(63 downto 32));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_ARR2_DATA_0) then
+                    int_arr2(31 downto 0) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr2(31 downto 0));
+                end if;
+            end if;
+        end if;
+    end process;
+
+    process (ACLK)
+    begin
+        if (ACLK'event and ACLK = '1') then
+            if (ACLK_EN = '1') then
+                if (w_hs = '1' and waddr = ADDR_ARR2_DATA_1) then
+                    int_arr2(63 downto 32) <= (UNSIGNED(WDATA(31 downto 0)) and wmask(31 downto 0)) or ((not wmask(31 downto 0)) and int_arr2(63 downto 32));
                 end if;
             end if;
         end if;

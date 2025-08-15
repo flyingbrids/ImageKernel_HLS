@@ -8,7 +8,7 @@
 <unit>ns</unit>
 <ProductFamily>zynquplus</ProductFamily>
 <Part>xczu1cg-sbva484-1-e</Part>
-<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</TopModelName>
+<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>2.70</ClockUncertainty>
 <FlowTarget>vivado</FlowTarget>
@@ -22,47 +22,46 @@
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
-<Best-caseLatency>783363</Best-caseLatency>
-<Average-caseLatency>783363</Average-caseLatency>
-<Worst-caseLatency>783363</Worst-caseLatency>
+<Best-caseLatency>783368</Best-caseLatency>
+<Average-caseLatency>783368</Average-caseLatency>
+<Worst-caseLatency>783368</Worst-caseLatency>
 <Best-caseRealTimeLatency>7.834 ms</Best-caseRealTimeLatency>
 <Average-caseRealTimeLatency>7.834 ms</Average-caseRealTimeLatency>
 <Worst-caseRealTimeLatency>7.834 ms</Worst-caseRealTimeLatency>
-<Interval-min>783363</Interval-min>
-<Interval-max>783363</Interval-max>
+<Interval-min>783368</Interval-min>
+<Interval-max>783368</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_132_1>
+<VITIS_LOOP_157_1>
 <Slack>7.30</Slack>
 <TripCount>156672</TripCount>
-<Latency>783361</Latency>
-<AbsoluteTimeLatency>7833610</AbsoluteTimeLatency>
+<Latency>783366</Latency>
+<AbsoluteTimeLatency>7833660</AbsoluteTimeLatency>
 <PipelineII>5</PipelineII>
-<PipelineDepth>7</PipelineDepth>
+<PipelineDepth>12</PipelineDepth>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_132_1>
+</VITIS_LOOP_157_1>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157</SourceLocation>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:229</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_132_1>
-<Name>VITIS_LOOP_132_1</Name>
+<VITIS_LOOP_157_1>
+<Name>VITIS_LOOP_157_1</Name>
 <IssueType>II Violation</IssueType>
-<ViolationType>Memory Dependency</ViolationType>
-<IterationDistance>1</IterationDistance>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:132~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157</SourceLocation>
-</VITIS_LOOP_132_1>
+<ViolationType>Resource Limitation</ViolationType>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:157~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:229</SourceLocation>
+</VITIS_LOOP_157_1>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
 
 <AreaEstimates>
 <Resources>
-<FF>577</FF>
-<LUT>581</LUT>
+<FF>793</FF>
+<LUT>1197</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -79,7 +78,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -90,7 +89,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -101,7 +100,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -112,7 +111,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -123,7 +122,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -134,10 +133,43 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_132_1</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_157_1</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>output_r_dout</name>
+<Object>output_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>80</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>output_r_empty_n</name>
+<Object>output_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>in</Dir>
+<Bits>1</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>output_r_read</name>
+<Object>output_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
@@ -650,47 +682,14 @@
 <Attribute>unknown</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>input_r_din</name>
-<Object>input_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_fifo</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>80</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>input_r_full_n</name>
-<Object>input_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_fifo</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>in</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>input_r_write</name>
-<Object>input_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>ap_fifo</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>1</Bits>
-<Attribute>control</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>sext_ln132</name>
-<Object>sext_ln132</Object>
+<name>arr2</name>
+<Object>arr2</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
-<Bits>61</Bits>
+<Bits>64</Bits>
 <Attribute>data</Attribute>
 </RtlPorts>
 </InterfaceSummary>

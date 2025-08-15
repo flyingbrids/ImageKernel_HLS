@@ -8,7 +8,7 @@
 <unit>ns</unit>
 <ProductFamily>zynquplus</ProductFamily>
 <Part>xczu1cg-sbva484-1-e</Part>
-<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</TopModelName>
+<TopModelName>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</TopModelName>
 <TargetClockPeriod>10.00</TargetClockPeriod>
 <ClockUncertainty>2.70</ClockUncertainty>
 <TargetInitiationInterval>4294967295</TargetInitiationInterval>
@@ -19,7 +19,7 @@
 <PipelineType>no</PipelineType>
 <SummaryOfTimingAnalysis>
 <unit>ns</unit>
-<EstimatedClockPeriod>5.075</EstimatedClockPeriod>
+<EstimatedClockPeriod>6.242</EstimatedClockPeriod>
 </SummaryOfTimingAnalysis>
 <SummaryOfOverallLatency>
 <unit>clock cycles</unit>
@@ -33,7 +33,7 @@
 <Interval-max>undef</Interval-max>
 </SummaryOfOverallLatency>
 <SummaryOfLoopLatency>
-<VITIS_LOOP_163_2>
+<VITIS_LOOP_182_2>
 <Slack>7.30</Slack>
 <TripCount>undef</TripCount>
 <Latency>undef</Latency>
@@ -42,19 +42,19 @@
 <PipelineDepth>7</PipelineDepth>
 <InstanceList>
 </InstanceList>
-</VITIS_LOOP_163_2>
+</VITIS_LOOP_182_2>
 </SummaryOfLoopLatency>
 <SummaryOfViolations>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:159</SourceLocation>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:178~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
 <SummaryOfLoopViolations>
-<VITIS_LOOP_163_2>
-<Name>VITIS_LOOP_163_2</Name>
+<VITIS_LOOP_182_2>
+<Name>VITIS_LOOP_182_2</Name>
 <IssueType>-</IssueType>
 <ViolationType>-</ViolationType>
-<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:164</SourceLocation>
-</VITIS_LOOP_163_2>
+<SourceLocation>/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:183~/home/leon/Desktop/Project/ImageKernel_HLS/conv2d_hls.cpp:228</SourceLocation>
+</VITIS_LOOP_182_2>
 </SummaryOfLoopViolations>
 </SummaryOfViolations>
 </PerformanceEstimates>
@@ -62,7 +62,7 @@
 <AreaEstimates>
 <Resources>
 <FF>1643</FF>
-<LUT>3975</LUT>
+<LUT>3973</LUT>
 <BRAM_18K>0</BRAM_18K>
 <DSP>0</DSP>
 <URAM>0</URAM>
@@ -79,7 +79,7 @@
 <InterfaceSummary>
 <RtlPorts>
 <name>ap_clk</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -90,7 +90,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_rst</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -101,7 +101,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_start</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -112,7 +112,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_done</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -123,7 +123,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_idle</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -134,7 +134,7 @@
 </RtlPorts>
 <RtlPorts>
 <name>ap_ready</name>
-<Object>conv2d_3x3_Pipeline_VITIS_LOOP_163_2</Object>
+<Object>conv2d_3x3_Pipeline_VITIS_LOOP_182_2</Object>
 <Type>return value</Type>
 <Scope></Scope>
 <IOProtocol>ap_ctrl_hs</IOProtocol>
@@ -177,41 +177,41 @@
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>output_r_TREADY</name>
+<name>output_r_din</name>
 <Object>output_r</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
+<IOProtocol>ap_fifo</IOProtocol>
+<IOConfig></IOConfig>
+<Dir>out</Dir>
+<Bits>80</Bits>
+<Attribute>control</Attribute>
+</RtlPorts>
+<RtlPorts>
+<name>output_r_full_n</name>
+<Object>output_r</Object>
+<Type>pointer</Type>
+<Scope></Scope>
+<IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>in</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>output_r_TDATA</name>
+<name>output_r_write</name>
 <Object>output_r</Object>
 <Type>pointer</Type>
 <Scope></Scope>
-<IOProtocol>axis</IOProtocol>
-<IOConfig></IOConfig>
-<Dir>out</Dir>
-<Bits>80</Bits>
-<Attribute>data</Attribute>
-</RtlPorts>
-<RtlPorts>
-<name>output_r_TVALID</name>
-<Object>output_r</Object>
-<Type>pointer</Type>
-<Scope></Scope>
-<IOProtocol>axis</IOProtocol>
+<IOProtocol>ap_fifo</IOProtocol>
 <IOConfig></IOConfig>
 <Dir>out</Dir>
 <Bits>1</Bits>
 <Attribute>control</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>cmp</name>
-<Object>cmp</Object>
+<name>cmp_i3</name>
+<Object>cmp_i3</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>
@@ -232,8 +232,8 @@
 <Attribute>data</Attribute>
 </RtlPorts>
 <RtlPorts>
-<name>cmp4</name>
-<Object>cmp4</Object>
+<name>cmp4_i</name>
+<Object>cmp4_i</Object>
 <Type>scalar</Type>
 <Scope></Scope>
 <IOProtocol>ap_none</IOProtocol>

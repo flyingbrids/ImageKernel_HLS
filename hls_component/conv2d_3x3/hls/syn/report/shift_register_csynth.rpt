@@ -3,7 +3,7 @@
 ================================================================
 == Vitis HLS Report for 'shift_register'
 ================================================================
-* Date:           Thu Aug 14 13:06:07 2025
+* Date:           Fri Aug 15 09:35:07 2025
 
 * Version:        2023.2 (Build 4023990 on Oct 11 2023)
 * Project:        conv2d_3x3
@@ -93,24 +93,24 @@
     +--------------------------+----------+----+---+----+------------+------------+
     |cmp122_fu_542_p2          |      icmp|   0|  0|  20|          12|          13|
     |cmp97_fu_536_p2           |      icmp|   0|  0|  19|          12|           1|
-    |select_ln115_1_fu_556_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_2_fu_564_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_3_fu_572_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_4_fu_580_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_5_fu_588_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_6_fu_596_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_7_fu_604_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_8_fu_612_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln115_fu_548_p3    |    select|   0|  0|   9|           1|          10|
-    |select_ln117_1_fu_628_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_2_fu_636_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_3_fu_644_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_4_fu_652_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_5_fu_660_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_6_fu_668_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_7_fu_676_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_8_fu_684_p3  |    select|   0|  0|   9|           1|          10|
-    |select_ln117_fu_620_p3    |    select|   0|  0|   9|           1|          10|
+    |select_ln116_1_fu_556_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_2_fu_564_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_3_fu_572_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_4_fu_580_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_5_fu_588_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_6_fu_596_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_7_fu_604_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_8_fu_612_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln116_fu_548_p3    |    select|   0|  0|   9|           1|          10|
+    |select_ln118_1_fu_628_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_2_fu_636_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_3_fu_644_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_4_fu_652_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_5_fu_660_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_6_fu_668_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_7_fu_676_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_8_fu_684_p3  |    select|   0|  0|   9|           1|          10|
+    |select_ln118_fu_620_p3    |    select|   0|  0|   9|           1|          10|
     |ap_enable_pp0             |       xor|   0|  0|   2|           1|           2|
     +--------------------------+----------+----+---+----+------------+------------+
     |Total                     |          |   0|  0| 203|          43|         196|
